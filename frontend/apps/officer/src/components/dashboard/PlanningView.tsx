@@ -310,7 +310,7 @@ export function PlanningView() {
           <div className="bg-white border border-[#DCE3EA] rounded-md overflow-hidden">
             <div className="px-4 py-3 border-b border-[#DCE3EA]">
               <h3 className="text-sm font-bold text-[#16212E]">Property Tax Linkage — Municipal Property ID to ULPIN</h3>
-              <p className="text-[11px] text-[#4A5B6E] mt-0.5">Maps municipal/panchayat Property IDs to canonical Bhoomi Dhrishti ULPINs for tax reconciliation</p>
+              <p className="text-[11px] text-[#4A5B6E] mt-0.5">Maps municipal/panchayat Property IDs to canonical Bharat Lives ULPINs for tax reconciliation</p>
             </div>
 
             <div className="px-4 py-3 border-b border-[#DCE3EA] bg-[#F7F9FC] flex gap-2">
@@ -330,7 +330,7 @@ export function PlanningView() {
               <thead>
                 <tr className="bg-[#F7F9FC] text-[#4A5B6E] text-left">
                   <th className="px-4 py-2.5 font-semibold">Municipal Property ID</th>
-                  <th className="px-4 py-2.5 font-semibold">ULPIN (Bhoomi Dhrishti)</th>
+                  <th className="px-4 py-2.5 font-semibold">ULPIN (Bharat Lives)</th>
                   <th className="px-4 py-2.5 font-semibold">Owner</th>
                   <th className="px-4 py-2.5 font-semibold">Ward / GP</th>
                   <th className="px-4 py-2.5 font-semibold">Type</th>

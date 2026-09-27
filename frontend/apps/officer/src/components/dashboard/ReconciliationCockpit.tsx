@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useCallback } from 'react';
 import {
   CadastralMap,
   PARCEL_DATA,
@@ -34,6 +34,11 @@ import {
   AlertCircle,
   FileText,
   Compass,
+  Map as MapIcon,
+  ShieldCheck,
+  ScrollText,
+  ArrowUp,
+  Globe,
 } from 'lucide-react';
 import { useRole } from '@/context/RoleContext';
 import { useFreshness } from '@/context/FreshnessContext';
@@ -608,6 +613,8 @@ export function ReconciliationCockpit({ onNavigateTab }: ReconciliationCockpitPr
   const [officerRemarks, setOfficerRemarks] = useState('');
   const [actionSuccessMsg, setActionSuccessMsg] = useState<string | null>(null);
   const [actionInProgress, setActionInProgress] = useState(false);
+  const [showMapSearch, setShowMapSearch] = useState(true);
+  const [mapSearchQuery, setMapSearchQuery] = useState('');
 
   // Map state
   const mapInstanceRef = useRef<any>(null);
@@ -615,9 +622,9 @@ export function ReconciliationCockpit({ onNavigateTab }: ReconciliationCockpitPr
     parcels: true,
     ulpin: true,
     villageBoundary: false,
-    roads: false,
-    railway: false,
-    governmentLand: false,
+    roads: true,
+    railway: true,
+    governmentLand: true,
     ownership: true,
     landUse: true,
     zoning: true,
@@ -626,8 +633,8 @@ export function ReconciliationCockpit({ onNavigateTab }: ReconciliationCockpitPr
     litigation: true,
     topologyConflicts: true,
     propertyTax: false,
-    utilityLines: false,
-    infrastructureRoW: false,
+    utilityLines: true,
+    infrastructureRoW: true,
     envBuffers: true,
   });
 
@@ -673,6 +680,56 @@ export function ReconciliationCockpit({ onNavigateTab }: ReconciliationCockpitPr
       }
     }
   };
+
+  const stableOnMapReady = useCallback((map: any) => {
+    mapInstanceRef.current = map;
+  }, []);
+
+  const stableOnParcelSelect = useCallback((p: ParcelData) => {
+    handleSelectParcel(p.parcel_id);
+  }, []);
+
+  const handleMapSearch = useCallback(() => {
+    if (!mapSearchQuery.trim()) return;
+    const q = mapSearchQuery.toLowerCase().trim();
+    const match = FOUR_PILLARS_DATA.find((p) =>
+      p.parcelId.toLowerCase().includes(q) ||
+      p.ulpin.toLowerCase().includes(q) ||
+      p.surveyNumber.toLowerCase().includes(q) ||
+      p.primaryOwner.toLowerCase().includes(q)
+    ) || PARCEL_DATA.find((p) =>
+      p.parcel_id.toLowerCase().includes(q) ||
+      p.ulpin.toLowerCase().includes(q) ||
+      p.survey_number.toLowerCase().includes(q) ||
+      p.owner.toLowerCase().includes(q)
+    );
+    if (match) {
+      const id = 'parcelId' in match ? match.parcelId : match.parcel_id;
+      handleSelectParcel(id);
+    }
+    setShowMapSearch(false);
+    setMapSearchQuery('');
+  }, [mapSearchQuery]);
+
+  const handleQuickAction = useCallback((action: string) => {
+    setShowMapSearch(false);
+    if (action === 'conflicts') {
+      setFilterSeverity('CRITICAL');
+    } else if (action === 'encumbrance') {
+      setFilterSeverity('ALL');
+      const enc = FOUR_PILLARS_DATA.find((p) => p.discrepancyType === 'ENCUMBRANCE');
+      if (enc) handleSelectParcel(enc.parcelId);
+    } else if (action === 'trust') {
+      setFilterSeverity('ALL');
+      const lowest = [...FOUR_PILLARS_DATA].sort((a, b) => a.trustScore - b.trustScore)[0];
+      if (lowest) handleSelectParcel(lowest.parcelId);
+    } else if (action === 'explore') {
+      const map = mapInstanceRef.current;
+      if (map) {
+        map.flyTo({ center: [80.187375, 12.729005], zoom: 14, pitch: 45, duration: 2000, essential: true });
+      }
+    }
+  }, []);
 
   const handleExecuteAction = (actionLabel: string, statutoryRef: string) => {
     if (!officerRemarks.trim()) {
@@ -801,7 +858,7 @@ export function ReconciliationCockpit({ onNavigateTab }: ReconciliationCockpitPr
           </div>
 
           {/* Queue Items List */}
-          <div className="flex-1 overflow-y-auto divide-y divide-[#142644]">
+          <div className="flex-1 overflow-y-auto scrollbar-hide divide-y divide-[#142644]">
             {filteredQueue.map((item) => {
               const isSelected = item.parcelId === selectedParcelId;
               const isCrit = item.riskBand === 'CRITICAL';
@@ -952,15 +1009,131 @@ export function ReconciliationCockpit({ onNavigateTab }: ReconciliationCockpitPr
           {/* Embedded MapLibre Component */}
           <div className="flex-1 w-full h-full relative">
             <CadastralMap
-              onMapReady={(map) => {
-                mapInstanceRef.current = map;
-              }}
+              onMapReady={stableOnMapReady}
               layers={mapLayers}
               statusFilter="all"
               riskFilter="all"
               selectedParcelId={selectedParcelId}
-              onParcelSelect={(p) => handleSelectParcel(p.parcel_id)}
+              onParcelSelect={stableOnParcelSelect}
             />
+
+            {/* ── Centered Search Overlay ──────────────────────────────── */}
+            {showMapSearch && (
+              <div className="absolute inset-0 z-40 flex flex-col items-center pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(6,12,24,0.72) 0%, transparent 100%)' }}
+              >
+                <div className="pointer-events-auto w-full max-w-[520px] px-5 mt-[12%]">
+
+                  <h1
+                    className="text-center text-[21px] text-white/95 mb-4"
+                    style={{ fontFamily: '"IBM Plex Serif", Georgia, serif', fontWeight: 500 }}
+                  >
+                    What brings you here today?
+                  </h1>
+
+                  {/* Input card */}
+                  <div className="bg-[#0b1528]/[.96] backdrop-blur-2xl rounded-2xl border border-[#1e3d6b]/60 shadow-[0_12px_48px_rgba(0,0,0,0.6)]">
+                    <textarea
+                      value={mapSearchQuery}
+                      onChange={(e) => setMapSearchQuery(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleMapSearch(); } }}
+                      placeholder="Find land owned by Rajasekharan, Tirupporur"
+                      rows={1}
+                      className="w-full bg-transparent text-[15px] text-white placeholder-[#546d8e] px-5 pt-4 pb-2 resize-none focus:outline-none leading-relaxed"
+                      autoFocus
+                    />
+
+                    {/* Toolbar */}
+                    <div className="flex items-center justify-between px-5 pb-3">
+                      <div className="flex items-center gap-0.5 bg-[#0a1222] rounded-lg p-0.5">
+                        <button
+                          type="button"
+                          className="text-[12px] font-semibold px-3 py-1.5 rounded-md bg-[#182d52] text-white transition-colors"
+                        >
+                          Chat
+                        </button>
+                        <button
+                          type="button"
+                          className="text-[12px] font-semibold px-3 py-1.5 rounded-md text-[#6d8cb8] hover:text-white transition-colors"
+                          onClick={() => setShowMapSearch(false)}
+                        >
+                          Map
+                        </button>
+                      </div>
+
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[12px] font-medium text-[#6d8cb8]">Trust Engine</span>
+                          <span className="text-[10px] font-bold bg-[#14a89a]/20 text-[#7fe9db] px-1.5 py-0.5 rounded">v2</span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={handleMapSearch}
+                          disabled={!mapSearchQuery.trim()}
+                          className="w-8 h-8 rounded-lg bg-[#14a89a] hover:bg-[#0f8a7e] disabled:bg-[#162B4D] disabled:text-[#3b5980] text-white flex items-center justify-center transition-colors"
+                        >
+                          <ArrowUp className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick actions */}
+                  <div className="flex items-center justify-center gap-4 mt-4 flex-wrap">
+                    <button
+                      type="button"
+                      onClick={() => handleQuickAction('conflicts')}
+                      className="flex items-center gap-1.5 text-[12px] font-medium text-[#a8c4e0] hover:text-white transition-colors drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                    >
+                      <AlertTriangle className="w-3.5 h-3.5 text-red-400/80" />
+                      Critical Conflicts
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleQuickAction('explore')}
+                      className="flex items-center gap-1.5 text-[12px] font-medium text-[#a8c4e0] hover:text-white transition-colors drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                    >
+                      <MapIcon className="w-3.5 h-3.5 text-[#7fe9db]/80" />
+                      Explore the Map
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleQuickAction('trust')}
+                      className="flex items-center gap-1.5 text-[12px] font-medium text-[#a8c4e0] hover:text-white transition-colors drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                    >
+                      <ShieldCheck className="w-3.5 h-3.5 text-amber-400/80" />
+                      Trust Scores
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleQuickAction('encumbrance')}
+                      className="flex items-center gap-1.5 text-[12px] font-medium text-[#a8c4e0] hover:text-white transition-colors drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                    >
+                      <ScrollText className="w-3.5 h-3.5 text-purple-400/80" />
+                      Encumbrance
+                    </button>
+                  </div>
+
+                  {/* Map hint */}
+                  <div className="flex items-center justify-center gap-1.5 mt-4 text-[11.5px] text-[#6d8cb8] drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    Click anywhere on the map to investigate a parcel
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Collapsed search pill (when overlay is dismissed) */}
+            {!showMapSearch && (
+              <button
+                type="button"
+                onClick={() => setShowMapSearch(true)}
+                className="absolute bottom-14 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 bg-[#0b1528]/90 backdrop-blur-xl px-5 py-2.5 rounded-full border border-[#1e3d6b]/60 shadow-[0_4px_24px_rgba(0,0,0,0.4)] text-[13px] font-medium text-[#8EAECF] hover:text-white hover:border-[#14a89a]/40 transition-all"
+              >
+                <Search className="w-4 h-4" />
+                What brings you here today?
+              </button>
+            )}
           </div>
 
           {/* Map bottom overlay: Spatial metrics bar */}
@@ -1027,7 +1200,7 @@ export function ReconciliationCockpit({ onNavigateTab }: ReconciliationCockpitPr
           </div>
 
           {/* Panel Scrollable Content: 4 Pillars Matrix & Action Center */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto scrollbar-hide p-4 space-y-4">
 
             {/* ── 4-PILLARS FEDERATED COMPARISON GRID ─────────────────────── */}
             <div className="space-y-2.5">

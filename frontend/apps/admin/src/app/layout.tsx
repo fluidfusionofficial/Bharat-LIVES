@@ -16,7 +16,7 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: 'Bhoomi Dhrishti — Admin Dashboard',
+  title: 'Bharat Lives — Admin Dashboard',
   description: 'National Land Records Interoperability Platform (DoLR)',
 };
 

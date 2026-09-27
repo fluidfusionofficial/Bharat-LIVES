@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { AuthGuard } from '@/components/auth/AuthGuard';
 import { RoleProvider, useRole, OfficerNavTab } from '@/context/RoleContext';
 import { FreshnessProvider } from '@/context/FreshnessContext';
 import { OfficerSidebar } from '@/components/layout/OfficerSidebar';
@@ -21,6 +22,7 @@ import { WorkflowsView } from '@/components/dashboard/WorkflowsView';
 import { GlobalSearchView } from '@/components/dashboard/GlobalSearchView';
 import { PlanningView } from '@/components/dashboard/PlanningView';
 import { AnalyticsView } from '@/components/dashboard/AnalyticsView';
+import { ServicesView } from '@/components/dashboard/ServicesView';
 
 function OfficerConsoleInner() {
   const { config, isTabAllowed } = useRole();
@@ -57,8 +59,12 @@ function OfficerConsoleInner() {
   return (
     <div className="h-screen w-screen flex flex-col overflow-hidden bg-[#F4F7FB]">
       <AppHeader onSearch={handleSelectParcelFromSearch} onGoHome={() => safeSetTab('home')} />
-      <KpiStrip onNavigate={(tab) => safeSetTab(tab)} />
-      <Breadcrumb activeTab={activeTab} onNavigate={(tab) => safeSetTab(tab)} />
+      {activeTab !== 'home' && (
+        <>
+          <KpiStrip onNavigate={(tab) => safeSetTab(tab)} />
+          <Breadcrumb activeTab={activeTab} onNavigate={(tab) => safeSetTab(tab)} />
+        </>
+      )}
 
       <div className="flex-1 flex min-h-0 overflow-hidden">
         <OfficerSidebar
@@ -84,6 +90,7 @@ function OfficerConsoleInner() {
           {activeTab === 'search'       && (
             <GlobalSearchView onSelectParcel={handleSelectParcelFromSearch} />
           )}
+          {activeTab === 'services'     && <ServicesView />}
         </main>
       </div>
     </div>
@@ -92,10 +99,12 @@ function OfficerConsoleInner() {
 
 export default function OfficerConsolePage() {
   return (
-    <RoleProvider>
-      <FreshnessProvider>
-        <OfficerConsoleInner />
-      </FreshnessProvider>
-    </RoleProvider>
+    <AuthGuard>
+      <RoleProvider>
+        <FreshnessProvider>
+          <OfficerConsoleInner />
+        </FreshnessProvider>
+      </RoleProvider>
+    </AuthGuard>
   );
 }

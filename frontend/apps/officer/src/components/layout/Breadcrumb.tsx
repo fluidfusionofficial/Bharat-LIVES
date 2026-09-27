@@ -19,6 +19,7 @@ const TAB_LABELS: Record<OfficerNavTab, string> = {
   satellite: 'Satellite Watch',
   workflows: 'Workflows',
   search: 'Global Search',
+  services: 'Services',
 };
 
 interface BreadcrumbProps {

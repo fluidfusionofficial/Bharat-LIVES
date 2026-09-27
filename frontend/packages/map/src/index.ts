@@ -5,3 +5,4 @@ export * from './ZoneLayer';
 export * from './ParcelPopup';
 export * from './ThreeDBuildings';
 export * from './TimeSlider';
+export * from './UtilityLayer';

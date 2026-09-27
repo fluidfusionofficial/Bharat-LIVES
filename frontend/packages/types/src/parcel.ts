@@ -66,7 +66,7 @@ export type TenureType =
 
 export interface Parcel {
   ulpin: string;          // Unique Land Parcel Identification Number
-  bdpr: string;           // Bhoomi Dhrishti Parcel Reference
+  bdpr: string;           // Bharat Lives Parcel Reference
   surveyNumber: string;
   subDivisionNumber?: string;
   address: string;

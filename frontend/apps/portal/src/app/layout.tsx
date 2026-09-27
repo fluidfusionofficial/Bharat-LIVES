@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Public_Sans, IBM_Plex_Serif } from 'next/font/google';
 import './globals.css';
+import { GovHeader } from '@/components/GovHeader';
+import { GovFooter } from '@/components/GovFooter';
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
@@ -16,9 +18,13 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: 'Bhoomi Dhrishti — Select Your Role',
+  title: {
+    default: 'Bharat Lives — Land Stack | Dept. of Land Resources, MoRD, Govt. of India',
+    template: '%s | Bharat Lives — Land Stack',
+  },
   description:
-    'Integrated GIS-based Digital Public Infrastructure for Land Governance. Department of Land Resources (DoLR), Ministry of Rural Development.',
+    'Bharat Lives (Land Stack): An Integrated GIS-based Digital Public Infrastructure for Land Governance. Department of Land Resources (DoLR), Ministry of Rural Development, Government of India. SIH 2026 PS-26014.',
+  keywords: ['Land Stack', 'ULPIN', 'Bharat Lives', 'GIS', 'DoLR', 'Land Governance', 'SIH 2026'],
 };
 
 export default function RootLayout({
@@ -28,8 +34,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${publicSans.variable} ${ibmPlexSerif.variable}`}>
-      <body className="font-sans antialiased bg-[#F4F7FB] text-[#16212E]">
-        {children}
+      <body className="font-sans antialiased bg-[#F4F7FB] text-[#16212E] flex flex-col min-h-screen">
+        <GovHeader />
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+        <GovFooter />
       </body>
     </html>
   );

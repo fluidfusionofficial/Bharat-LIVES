@@ -55,6 +55,24 @@ data/raw/
 *.crt
 keycloak/import/*.json.bak
 
+# Screenshots / reference images
+.playwright-mcp/
+*.playwright-mcp*
+screenshot-*.png
+officer-*.png
+verify-*.png
+landeed/
+
+# Documentation artifacts (not code)
+frontend/START_GUIDE.md
+frontend/BUILD_COMPLETE.md
+frontend/QUICK_START.md
+frontend/frontend-startup.log
+
+# OS junk
+desktop.ini
+Thumbs.db
+
 # Misc
 *.tmp
 *.bak

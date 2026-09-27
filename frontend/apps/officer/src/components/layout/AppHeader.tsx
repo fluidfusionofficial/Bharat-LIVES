@@ -130,7 +130,7 @@ export default function AppHeader({ onSearch, onGoHome }: AppHeaderProps) {
               whiteSpace: 'nowrap',
             }}
           >
-            BHOOMI DHRISHTI
+            BHARAT LIVES
           </span>
           <span
             style={{

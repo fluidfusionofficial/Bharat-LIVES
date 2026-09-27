@@ -23,7 +23,8 @@ export type OfficerNavTab =
   | 'planning'
   | 'analytics'
   | 'workflows'
-  | 'search';
+  | 'search'
+  | 'services';
 
 export interface RoleConfig {
   id: OfficerRole;
@@ -57,6 +58,7 @@ export const ROLE_CONFIGS: Record<OfficerRole, RoleConfig> = {
       'trust',
       'workflows',
       'search',
+      'services',
     ],
     defaultTab: 'home',
   },
@@ -80,6 +82,7 @@ export const ROLE_CONFIGS: Record<OfficerRole, RoleConfig> = {
       'trust',
       'workflows',
       'search',
+      'services',
     ],
     defaultTab: 'home',
   },
@@ -103,6 +106,7 @@ export const ROLE_CONFIGS: Record<OfficerRole, RoleConfig> = {
       'trust',
       'workflows',
       'search',
+      'services',
     ],
     defaultTab: 'home',
   },
@@ -126,6 +130,7 @@ export const ROLE_CONFIGS: Record<OfficerRole, RoleConfig> = {
       'trust',
       'workflows',
       'search',
+      'services',
     ],
     defaultTab: 'home',
   },
@@ -151,6 +156,7 @@ export const ROLE_CONFIGS: Record<OfficerRole, RoleConfig> = {
       'planning',
       'workflows',
       'search',
+      'services',
     ],
     defaultTab: 'home',
   },

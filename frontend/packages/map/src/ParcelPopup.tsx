@@ -19,6 +19,8 @@ export interface ParcelPopupProps {
 export function ParcelPopup({ layerId, onViewDetails }: ParcelPopupProps) {
   const map = useMap();
   const popupRef = React.useRef<maplibregl.Popup | null>(null);
+  const onViewDetailsRef = React.useRef(onViewDetails);
+  onViewDetailsRef.current = onViewDetails;
 
   React.useEffect(() => {
     if (!map) return;
@@ -32,12 +34,10 @@ export function ParcelPopup({ layerId, onViewDetails }: ParcelPopupProps) {
 
       if (!properties) return;
 
-      // Remove existing popup
       if (popupRef.current) {
         popupRef.current.remove();
       }
 
-      // Create popup content
       const popupContent = document.createElement('div');
       popupContent.className = 'p-2 min-w-[200px]';
       popupContent.innerHTML = `
@@ -68,7 +68,6 @@ export function ParcelPopup({ layerId, onViewDetails }: ParcelPopupProps) {
         </div>
       `;
 
-      // Create and show popup
       popupRef.current = new maplibregl.Popup({
         closeButton: true,
         closeOnClick: false,
@@ -77,11 +76,11 @@ export function ParcelPopup({ layerId, onViewDetails }: ParcelPopupProps) {
         .setDOMContent(popupContent)
         .addTo(map);
 
-      // Add click handler for button
       const btn = popupContent.querySelector('#view-details-btn');
-      if (btn && onViewDetails) {
+      if (btn && onViewDetailsRef.current) {
+        const ulpin = properties.ulpin;
         btn.addEventListener('click', () => {
-          onViewDetails(properties.ulpin);
+          onViewDetailsRef.current?.(ulpin);
           popupRef.current?.remove();
         });
       }
@@ -95,7 +94,7 @@ export function ParcelPopup({ layerId, onViewDetails }: ParcelPopupProps) {
         popupRef.current.remove();
       }
     };
-  }, [map, layerId, onViewDetails]);
+  }, [map, layerId]);
 
   return null;
 }

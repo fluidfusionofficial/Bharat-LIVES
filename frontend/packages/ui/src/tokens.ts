@@ -1,4 +1,4 @@
-// Design tokens for Bhoomi Dhrishti (DoLR / Ministry of Rural Development)
+// Design tokens for Bharat Lives (DoLR / Ministry of Rural Development)
 // Strictly follows the institutional design system: light theme only, solid fills, institutional blue
 
 export const colors = {

@@ -16,7 +16,7 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: 'Bhoomi Dhrishti — Citizen Portal',
+  title: 'Bharat Lives — Citizen Portal',
   description: 'National Land Records Modernization Programme (DoLR)',
   manifest: '/manifest.json',
   themeColor: '#14548C',

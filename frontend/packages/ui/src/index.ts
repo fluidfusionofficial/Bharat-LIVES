@@ -3,6 +3,7 @@ export * from './tokens';
 
 // Utils
 export * from './lib/utils';
+export { getAppUrl } from './lib/app-urls';
 
 // Base components
 export * from './components/Button';
@@ -14,7 +15,7 @@ export * from './components/Tabs';
 export * from './components/Select';
 export * from './components/Sheet';
 
-// Bhoomi Dhrishti components
+// Bharat Lives components
 export * from './components/ProvenanceTag';
 export * from './components/ConfidenceBadge';
 export * from './components/ConflictAlert';

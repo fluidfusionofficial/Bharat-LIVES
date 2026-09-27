@@ -75,7 +75,7 @@ export function CitizenHeader() {
             </div>
             <div>
               <div className="text-base font-bold tracking-tight leading-none">
-                Bhoomi Dhrishti
+                Bharat Lives
               </div>
               <div className="text-[10px] text-[#E2ECF5] tracking-wide mt-0.5 opacity-90">
                 Department of Land Resources (DoLR)

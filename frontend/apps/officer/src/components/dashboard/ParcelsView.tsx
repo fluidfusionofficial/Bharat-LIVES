@@ -171,7 +171,7 @@ export function ParcelsView() {
           { id: 'l1', parcel_id: selectedParcelId, event_type: 'REGISTRATION', effective_date: '2019-11-14', remarks: 'Sale deed registered at SRO Kilpennathur (Deed 1042/2019)' },
           { id: 'l2', parcel_id: selectedParcelId, event_type: 'MUTATION', effective_date: '2019-12-05', remarks: 'Revenue mutation sanctioned by Tehsildar, Kilpennathur' },
           { id: 'l3', parcel_id: selectedParcelId, event_type: 'RE-SURVEY', effective_date: '2024-03-15', remarks: 'SVAMITVA DGPS re-measurement completed' },
-          { id: 'l4', parcel_id: selectedParcelId, event_type: 'ULPIN_ASSIGNED', effective_date: '2026-09-10', remarks: 'ULPIN assigned via Bhoomi Dhrishti National Registry' },
+          { id: 'l4', parcel_id: selectedParcelId, event_type: 'ULPIN_ASSIGNED', effective_date: '2026-09-10', remarks: 'ULPIN assigned via Bharat Lives National Registry' },
         ]);
       }
 

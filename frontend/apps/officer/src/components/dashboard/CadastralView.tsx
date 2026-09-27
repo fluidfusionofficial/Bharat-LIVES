@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import {
   Search, X, Layers, SlidersHorizontal, ChevronRight, Map as MapIcon,
   AlertTriangle, CheckCircle2, Clock, FileText, Landmark, Coins,
@@ -112,14 +112,14 @@ export function CadastralView({
 }) {
   const [layers, setLayers] = useState<LayerState>({
     // Tier 1: Base Spatial
-    parcels: true, ulpin: true, villageBoundary: false,
-    roads: false, railway: false, governmentLand: false,
+    parcels: true, ulpin: true, villageBoundary: true,
+    roads: true, railway: true, governmentLand: true,
     // Tier 2: Governance
     ownership: true, landUse: false, zoning: false,
     registration: false, encumbrance: false, litigation: false,
     topologyConflicts: true,
     // Tier 3: Use-Case & Utility
-    propertyTax: false, utilityLines: false, infrastructureRoW: false, envBuffers: false,
+    propertyTax: false, utilityLines: true, infrastructureRoW: true, envBuffers: false,
   });
   const [statusFilter, setStatusFilter] = useState('all');
   const [riskFilter,   setRiskFilter]   = useState('all');
@@ -133,7 +133,14 @@ export function CadastralView({
 
   // Globe map ref — lets us fly back to space orbit
   const mapInstanceRef = useRef<any>(null);
-  const handleMapReady = (map: any) => { mapInstanceRef.current = map; };
+  const handleMapReady = useCallback((map: any) => { mapInstanceRef.current = map; }, []);
+  const handleParcelSelectStable = useCallback((parcel: ParcelData) => {
+    setSelectedParcel(parcel);
+    setPanelOpen(true);
+    setActiveTab('overview');
+    setSearchQuery('');
+    setShowSuggestions(false);
+  }, []);
   const flyToOrbit = () => {
     const m = mapInstanceRef.current;
     if (!m) return;
@@ -235,7 +242,7 @@ export function CadastralView({
         statusFilter={statusFilter}
         riskFilter={riskFilter}
         selectedParcelId={selectedParcel?.parcel_id ?? null}
-        onParcelSelect={handleParcelSelect}
+        onParcelSelect={handleParcelSelectStable}
       />
 
       {/* ── TOP-LEFT: District badge ──────────────────────────────────────── */}

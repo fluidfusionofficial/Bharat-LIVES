@@ -16,7 +16,7 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: 'Bhoomi Dhrishti — Officer Console',
+  title: 'Bharat Lives — Officer Console',
   description: 'Department of Land Resources (DoLR), Ministry of Rural Development',
 };
 

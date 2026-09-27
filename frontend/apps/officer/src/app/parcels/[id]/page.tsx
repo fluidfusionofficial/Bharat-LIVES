@@ -48,7 +48,7 @@ const FALLBACK_LINEAGE: LineageEntry[] = [
   { timestamp: '2019-12-05T14:00:00Z', operation: 'Revenue Mutation Sanctioned by Tehsildar', ulpin: 'TN-CHN-000001', area: 14200, surveyNumber: '42/1B', source: 'Tamil Nilam', trustScore: 94 },
   { timestamp: '2021-06-20T11:00:00Z', operation: 'Mortgage Lien Placed (SBI Chengalpattu)', ulpin: 'TN-CHN-000001', area: 14200, surveyNumber: '42/1B', source: 'NGDRS EC Ledger', trustScore: 88 },
   { timestamp: '2024-03-15T09:30:00Z', operation: 'SVAMITVA Survey Re-measurement Completed', ulpin: 'TN-CHN-000001', area: 14200, surveyNumber: '42/1B', source: 'SVAMITVA Survey DB', trustScore: 91 },
-  { timestamp: '2026-09-10T16:00:00Z', operation: 'ULPIN Assigned via Bhoomi Dhrishti National Registry', ulpin: 'TN-CHN-000001', area: 14200, surveyNumber: '42/1B', source: 'Bhoomi Dhrishti', trustScore: 88 },
+  { timestamp: '2026-09-10T16:00:00Z', operation: 'ULPIN Assigned via Bharat Lives National Registry', ulpin: 'TN-CHN-000001', area: 14200, surveyNumber: '42/1B', source: 'Bharat Lives', trustScore: 88 },
 ];
 
 export default function ParcelDetailPage() {

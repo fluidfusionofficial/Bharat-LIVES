@@ -17,21 +17,21 @@ export function ConflictLayer({
 }: ConflictLayerProps) {
   const map = useMap();
 
+  // Stable ref for data — avoids teardown/rebuild when parent passes a new object reference
+  const dataRef = React.useRef(data);
+  dataRef.current = data;
+
   React.useEffect(() => {
     if (!map) return;
 
-    // Add source
+    // Add source + layer once
     if (!map.getSource(sourceId)) {
       map.addSource(sourceId, {
         type: 'geojson',
-        data: data,
+        data: dataRef.current,
       });
-    } else {
-      const source = map.getSource(sourceId) as maplibregl.GeoJSONSource;
-      source.setData(data);
     }
 
-    // Add circle layer
     if (!map.getLayer(layerId)) {
       map.addLayer({
         id: layerId,
@@ -44,7 +44,7 @@ export function ConflictLayer({
             'HIGH', colors.error[500],
             'MEDIUM', colors.warning[500],
             'LOW', colors.success[500],
-            colors.warning[500], // default
+            colors.warning[500],
           ],
           'circle-radius': 8,
           'circle-stroke-width': 2,
@@ -52,7 +52,6 @@ export function ConflictLayer({
         },
       });
 
-      // Add hover effect
       map.on('mousemove', layerId, () => {
         map.getCanvas().style.cursor = 'pointer';
       });
@@ -70,7 +69,16 @@ export function ConflictLayer({
         map.removeSource(sourceId);
       }
     };
-  }, [map, sourceId, layerId, data]);
+  }, [map, sourceId, layerId]);
+
+  // Update data without tearing down layers
+  React.useEffect(() => {
+    if (!map) return;
+    const source = map.getSource(sourceId) as any;
+    if (source) {
+      source.setData(data);
+    }
+  }, [map, sourceId, data]);
 
   return null;
 }

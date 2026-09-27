@@ -17,8 +17,9 @@ import {
   Building2,
   BarChart3,
   ArrowLeft,
+  ClipboardList,
 } from 'lucide-react';
-import { cn } from '@bhoomi/ui';
+import { cn, getAppUrl } from '@bhoomi/ui';
 import { useRole, OfficerNavTab } from '@/context/RoleContext';
 
 interface NavItem {
@@ -30,7 +31,7 @@ interface NavItem {
 }
 
 const ALL_NAV_ITEMS: NavItem[] = [
-  { id: 'home',         label: 'Triage Cockpit', icon: Home,            description: '4-Pillar Cross-Silo Reconciliation Cockpit', section: 'Overview' },
+  { id: 'home',         label: 'Home',           icon: Home,            description: 'Map-first landing with quick actions',       section: 'Overview' },
   { id: 'analytics',    label: 'Analytics',      icon: BarChart3,       description: 'Executive KPIs & Heatmaps',        section: 'Overview' },
   { id: 'cadastral',    label: 'Cadastral Map',  icon: Map,             description: 'Full-Screen GIS Cadastral View',   section: 'Land Records' },
   { id: 'parcels',      label: 'Parcels',        icon: MapPin,          description: 'Search & Cadastral Lineage',       section: 'Land Records' },
@@ -44,6 +45,7 @@ const ALL_NAV_ITEMS: NavItem[] = [
   { id: 'satellite',    label: 'Satellite',      icon: Satellite,       description: 'Unauthorized Conversion Watch',    section: 'Intelligence' },
   { id: 'workflows',    label: 'Workflows',      icon: Workflow,        description: 'Guided Workflow Launcher',         section: 'Tools' },
   { id: 'search',       label: 'Search',         icon: Search,          description: 'Global Ledger Lookup',             section: 'Tools' },
+  { id: 'services',     label: 'Services',       icon: ClipboardList,   description: 'Service Catalog & Applications',   section: 'Tools' },
 ];
 
 export interface OfficerSidebarProps {
@@ -58,6 +60,9 @@ export function OfficerSidebar({
   pendingCounts = {},
 }: OfficerSidebarProps) {
   const { config, isTabAllowed } = useRole();
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [hoveredItem, setHoveredItem] = React.useState<string | null>(null);
+  const [hoveredRect, setHoveredRect] = React.useState<{ top: number } | null>(null);
 
   const filteredItems = ALL_NAV_ITEMS.filter((item) => isTabAllowed(item.id));
 
@@ -71,31 +76,46 @@ export function OfficerSidebar({
     sections[sections.length - 1].items.push(item);
   }
 
+  const hoveredNav = hoveredItem ? ALL_NAV_ITEMS.find((n) => n.id === hoveredItem) : null;
+
   return (
-    <aside className="group flex-shrink-0 w-12 hover:w-[220px] transition-[width] duration-200 ease-in-out overflow-hidden bg-[#0B2447] text-[#E2ECF5] flex flex-col select-none border-r border-[#103F68]">
+    <aside
+      className={cn(
+        'relative flex-shrink-0 transition-[width] duration-200 ease-in-out overflow-visible bg-[#0B2447] text-[#E2ECF5] flex flex-col select-none border-r border-[#103F68]',
+        isExpanded ? 'w-[220px]' : 'w-14'
+      )}
+      onMouseEnter={() => setIsExpanded(true)}
+      onMouseLeave={() => { setIsExpanded(false); setHoveredItem(null); setHoveredRect(null); }}
+    >
       {/* Brand Header */}
-      <div className="h-14 flex items-center px-3 border-b border-[#14548C]/60">
+      <div className="h-14 flex items-center px-3 border-b border-[#14548C]/60 overflow-hidden">
         <div
           className="w-8 h-8 flex-shrink-0 rounded-[5px] grid place-items-center font-bold text-sm text-white"
           style={{ background: `linear-gradient(135deg, ${config.color}, ${config.color}dd)` }}
         >
           {config.title.charAt(0)}
         </div>
-        <div className="ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-150 delay-75 whitespace-nowrap overflow-hidden">
-          <div className="text-xs font-bold text-white leading-none">{config.title}</div>
-          <div className="text-[10px] text-[#E2ECF5]/80 mt-0.5">{config.subtitle}</div>
-        </div>
+        {isExpanded && (
+          <div className="ml-3 whitespace-nowrap overflow-hidden animate-in fade-in duration-150">
+            <div className="text-xs font-bold text-white leading-none">{config.title}</div>
+            <div className="text-[10px] text-[#E2ECF5]/80 mt-0.5">{config.subtitle}</div>
+          </div>
+        )}
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 py-2 overflow-y-auto overflow-x-hidden">
-        {sections.map((section) => (
+      <nav className="flex-1 py-2 overflow-y-auto overflow-x-hidden scrollbar-hide">
+        {sections.map((section, si) => (
           <div key={section.label}>
-            <div className="px-3 pt-3 pb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150 delay-75">
-              <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#E2ECF5]/40">
-                {section.label}
-              </span>
-            </div>
+            {isExpanded ? (
+              <div className="px-3 pt-3 pb-1">
+                <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#E2ECF5]/40">
+                  {section.label}
+                </span>
+              </div>
+            ) : (
+              si > 0 && <div className="mx-2.5 my-1.5 border-t border-[#1A3158]" />
+            )}
             {section.items.map((item) => {
               const isActive = activeTab === item.id;
               const Icon = item.icon;
@@ -105,28 +125,49 @@ export function OfficerSidebar({
                 <button
                   key={item.id}
                   type="button"
-                  title={item.description}
                   onClick={() => onTabChange(item.id)}
+                  onMouseEnter={(e) => {
+                    if (!isExpanded) {
+                      setHoveredItem(item.id);
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      setHoveredRect({ top: rect.top });
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (!isExpanded) {
+                      setHoveredItem(null);
+                      setHoveredRect(null);
+                    }
+                  }}
                   className={cn(
-                    'w-full flex items-center gap-3 px-3 py-2.5 overflow-hidden whitespace-nowrap transition-colors',
+                    'relative w-full flex items-center gap-3 px-3 py-2.5 overflow-hidden whitespace-nowrap transition-colors',
                     isActive
                       ? 'bg-[#14548C] text-white'
                       : 'text-[#E2ECF5]/80 hover:bg-[#14548C]/40 hover:text-white'
                   )}
                 >
-                  <Icon className="w-5 h-5 flex-shrink-0" />
-                  <span className="text-xs font-semibold truncate flex-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150 delay-75">
-                    {item.label}
+                  <span className="relative flex-shrink-0">
+                    <Icon className="w-5 h-5" />
+                    {!isExpanded && count != null && count > 0 && (
+                      <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#B8720B]" />
+                    )}
                   </span>
-                  {count != null && count > 0 && (
-                    <span
-                      className={cn(
-                        'text-[10px] font-bold px-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-150 delay-75',
-                        isActive ? 'bg-white text-[#14548C]' : 'bg-[#B8720B] text-white'
+                  {isExpanded && (
+                    <>
+                      <span className="text-xs font-semibold truncate flex-1">
+                        {item.label}
+                      </span>
+                      {count != null && count > 0 && (
+                        <span
+                          className={cn(
+                            'text-[10px] font-bold px-1.5 rounded-full',
+                            isActive ? 'bg-white text-[#14548C]' : 'bg-[#B8720B] text-white'
+                          )}
+                        >
+                          {count}
+                        </span>
                       )}
-                    >
-                      {count}
-                    </span>
+                    </>
                   )}
                 </button>
               );
@@ -137,21 +178,36 @@ export function OfficerSidebar({
 
       {/* Back to Portal link */}
       <a
-        href="http://localhost:3001"
+        href={getAppUrl('portal')}
         className="flex items-center gap-3 px-3 py-2.5 border-t border-[#14548C]/60 text-[#E2ECF5]/60 hover:text-white hover:bg-[#14548C]/30 transition-colors overflow-hidden whitespace-nowrap"
       >
         <ArrowLeft className="w-5 h-5 flex-shrink-0" />
-        <span className="text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-150 delay-75">
-          Switch Role
-        </span>
+        {isExpanded && (
+          <span className="text-xs font-semibold">Switch Role</span>
+        )}
       </a>
 
       {/* Footer */}
       <div className="border-t border-[#14548C]/60 bg-[#07223B] px-3 py-2.5 overflow-hidden whitespace-nowrap">
-        <div className="text-[10px] text-[#E2ECF5]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-          v1.0.0 · Keycloak SSO
-        </div>
+        {isExpanded && (
+          <div className="text-[10px] text-[#E2ECF5]/60">
+            v1.0.0 · Keycloak SSO
+          </div>
+        )}
       </div>
+
+      {/* Tooltip (collapsed state only) */}
+      {!isExpanded && hoveredNav && hoveredRect && (
+        <div
+          className="fixed z-[9999] ml-1 pointer-events-none"
+          style={{ left: 56, top: hoveredRect.top }}
+        >
+          <div className="bg-[#0f1d38] border border-[#1e3d6b] text-white text-xs font-semibold px-3 py-1.5 rounded-md shadow-lg whitespace-nowrap">
+            {hoveredNav.label}
+            <div className="text-[10px] font-normal text-[#8EAECF] mt-0.5">{hoveredNav.description}</div>
+          </div>
+        </div>
+      )}
     </aside>
   );
 }

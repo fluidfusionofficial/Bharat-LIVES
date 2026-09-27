@@ -33,7 +33,7 @@ export function AdminHeader({
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-base font-bold text-[#16212E] tracking-tight leading-none">
-                Bhoomi Dhrishti
+                Bharat Lives
               </h1>
               <span className="px-2 py-0.5 rounded-[4px] text-[10px] font-bold bg-[#E2ECF5] text-[#103F68] uppercase tracking-wider">
                 Admin Console

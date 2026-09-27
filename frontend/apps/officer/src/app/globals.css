@@ -86,6 +86,13 @@
   }
   .bd-pulse { animation: bd-pulse 2s infinite; }
   .bd-mono { font-family: "SFMono-Regular", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace; }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media print {

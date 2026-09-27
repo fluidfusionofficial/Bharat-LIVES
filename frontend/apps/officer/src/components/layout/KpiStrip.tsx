@@ -14,6 +14,8 @@ import {
   BarChart3,
   Scale,
   ShieldAlert,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import { fetchTrustAnomaliesSummary } from '@bhoomi/api-client';
 import { useRole, OfficerRole, OfficerNavTab } from '@/context/RoleContext';
@@ -92,6 +94,14 @@ export interface KpiStripProps {
 export default function KpiStrip({ onNavigate }: KpiStripProps) {
   const { role, config } = useRole();
   const [data, setData] = useState({ total: 15, verified: 8, conflict: 5, risk: 4 });
+  const [collapsed, setCollapsed] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    return localStorage.getItem('bl-kpi-collapsed') !== 'false';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('bl-kpi-collapsed', String(collapsed));
+  }, [collapsed]);
 
   useEffect(() => {
     (async () => {
@@ -111,7 +121,20 @@ export default function KpiStrip({ onNavigate }: KpiStripProps) {
       className="flex items-stretch overflow-x-auto flex-shrink-0 bg-white shadow-sm z-[900]"
       style={{ borderBottom: '1px solid #e3e8ef' }}
     >
-      {kpis.map((kpi) => {
+      {/* Expand/collapse toggle */}
+      <button
+        type="button"
+        onClick={() => setCollapsed((v) => !v)}
+        className="flex items-center gap-1.5 px-3 min-w-max cursor-pointer hover:bg-[#f7f9fc] transition-colors text-[#6b7688]"
+        style={{ borderRight: '1px solid #f1f4f8' }}
+      >
+        {collapsed ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
+        <span style={{ fontSize: 11, fontWeight: 600 }}>
+          {collapsed ? 'Show metrics' : 'Hide'}
+        </span>
+      </button>
+
+      {!collapsed && kpis.map((kpi) => {
         const Icon = kpi.icon;
         return (
           <button

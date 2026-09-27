@@ -8,27 +8,34 @@ import {
   Zap, Home, ShoppingCart, ArrowLeftRight, Scale, Layers,
 } from 'lucide-react';
 
+function getAppUrl(app: 'officer' | 'citizen'): string {
+  const ports = { officer: 3000, citizen: 3002 };
+  const envKey = `NEXT_PUBLIC_${app.toUpperCase()}_URL`;
+  try { const v = (globalThis as any).process?.env?.[envKey]; if (v) return v; } catch {}
+  return `http://localhost:${ports[app]}`;
+}
+
 const ALL_SERVICES = [
   // Land Records
-  { id: 'ror',    name: 'Record of Rights (RoR)',           nameHi: 'अधिकार अभिलेख',         desc: 'Download certified RoR/Patta for your land parcel.',          time: 'Instant', free: true,  category: 'Land Records', icon: FileText,     href: 'http://localhost:3002', intents: ['find', 'buy'] },
-  { id: 'jamab',  name: 'Jamabandi / Khatoni Copy',         nameHi: 'जमाबंदी / खतौनी',       desc: 'Download revenue record of agricultural land holdings.',      time: 'Instant', free: true,  category: 'Land Records', icon: FileText,     href: 'http://localhost:3002', intents: ['find', 'inherit'] },
-  { id: 'parcel', name: 'Parcel Map Extract',               nameHi: 'भूखंड नक्शा',           desc: 'Download cadastral boundary map for a survey number.',         time: 'Instant', free: true,  category: 'Land Records', icon: MapPin,       href: 'http://localhost:3002', intents: ['find', 'buy'] },
+  { id: 'ror',    name: 'Record of Rights (RoR)',           nameHi: 'अधिकार अभिलेख',         desc: 'Download certified RoR/Patta for your land parcel.',          time: 'Instant', free: true,  category: 'Land Records', icon: FileText,     href: () => getAppUrl('citizen'), intents: ['find', 'buy'] },
+  { id: 'jamab',  name: 'Jamabandi / Khatoni Copy',         nameHi: 'जमाबंदी / खतौनी',       desc: 'Download revenue record of agricultural land holdings.',      time: 'Instant', free: true,  category: 'Land Records', icon: FileText,     href: () => getAppUrl('citizen'), intents: ['find', 'inherit'] },
+  { id: 'parcel', name: 'Parcel Map Extract',               nameHi: 'भूखंड नक्शा',           desc: 'Download cadastral boundary map for a survey number.',         time: 'Instant', free: true,  category: 'Land Records', icon: MapPin,       href: () => getAppUrl('citizen'), intents: ['find', 'buy'] },
   // Ownership
-  { id: 'ec',     name: 'Encumbrance Certificate (EC)',     nameHi: 'भार प्रमाण पत्र',       desc: 'Check mortgage, litigation, and outstanding dues on land.',   time: 'Instant', free: true,  category: 'Ownership',    icon: Shield,       href: 'http://localhost:3002', intents: ['buy', 'sell', 'loan'] },
-  { id: 'own',    name: 'Ownership Verification',           nameHi: 'स्वामित्व जांच',         desc: 'Verify legal ownership by ULPIN or survey number.',           time: 'Instant', free: true,  category: 'Ownership',    icon: Shield,       href: 'http://localhost:3002', intents: ['buy', 'find'] },
-  { id: 'title',  name: 'Title Clarity Report (13-Year)',   nameHi: 'शीर्षक रिपोर्ट',        desc: '13-year deed chain and encumbrance report.',                  time: '2–5 days', free: false, category: 'Ownership',    icon: ClipboardList, href: 'http://localhost:3002', intents: ['buy', 'sell'] },
+  { id: 'ec',     name: 'Encumbrance Certificate (EC)',     nameHi: 'भार प्रमाण पत्र',       desc: 'Check mortgage, litigation, and outstanding dues on land.',   time: 'Instant', free: true,  category: 'Ownership',    icon: Shield,       href: () => getAppUrl('citizen'), intents: ['buy', 'sell', 'loan'] },
+  { id: 'own',    name: 'Ownership Verification',           nameHi: 'स्वामित्व जांच',         desc: 'Verify legal ownership by ULPIN or survey number.',           time: 'Instant', free: true,  category: 'Ownership',    icon: Shield,       href: () => getAppUrl('citizen'), intents: ['buy', 'find'] },
+  { id: 'title',  name: 'Title Clarity Report (13-Year)',   nameHi: 'शीर्षक रिपोर्ट',        desc: '13-year deed chain and encumbrance report.',                  time: '2–5 days', free: false, category: 'Ownership',    icon: ClipboardList, href: () => getAppUrl('citizen'), intents: ['buy', 'sell'] },
   // Mutations
-  { id: 'mut',    name: 'Mutation Application',             nameHi: 'दाखिल-खारिज आवेदन',    desc: 'Apply for title transfer in Revenue Records after deed.',      time: '15 days',  free: false, category: 'Mutations',    icon: ArrowLeftRight, href: 'http://localhost:3002', intents: ['sell', 'transfer', 'inherit'] },
-  { id: 'part',   name: 'Partition Request',                nameHi: 'बंटवारा अनुरोध',        desc: 'Apply for physical partition of jointly held land.',           time: '21 days',  free: false, category: 'Mutations',    icon: ArrowLeftRight, href: 'http://localhost:3002', intents: ['inherit', 'transfer'] },
-  { id: 'track',  name: 'Track Application Status',         nameHi: 'आवेदन स्थिति',          desc: 'Check status of pending mutation or partition request.',       time: 'Real-time', free: true, category: 'Mutations',    icon: AlertCircle,  href: 'http://localhost:3002', intents: ['transfer'] },
+  { id: 'mut',    name: 'Mutation Application',             nameHi: 'दाखिल-खारिज आवेदन',    desc: 'Apply for title transfer in Revenue Records after deed.',      time: '15 days',  free: false, category: 'Mutations',    icon: ArrowLeftRight, href: () => getAppUrl('citizen'), intents: ['sell', 'transfer', 'inherit'] },
+  { id: 'part',   name: 'Partition Request',                nameHi: 'बंटवारा अनुरोध',        desc: 'Apply for physical partition of jointly held land.',           time: '21 days',  free: false, category: 'Mutations',    icon: ArrowLeftRight, href: () => getAppUrl('citizen'), intents: ['inherit', 'transfer'] },
+  { id: 'track',  name: 'Track Application Status',         nameHi: 'आवेदन स्थिति',          desc: 'Check status of pending mutation or partition request.',       time: 'Real-time', free: true, category: 'Mutations',    icon: AlertCircle,  href: () => getAppUrl('citizen'), intents: ['transfer'] },
   // Transparency
-  { id: 'audit',  name: 'Who Accessed My Land',             nameHi: 'मेरी भूमि को किसने देखा', desc: 'Transparent audit of all officer and bank enquiries.',        time: 'Instant', free: true,  category: 'Transparency', icon: Eye,          href: 'http://localhost:3002', intents: ['dispute', 'find'] },
-  { id: 'txn',    name: 'Transaction History',              nameHi: 'लेनदेन इतिहास',         desc: 'Complete registered deed history and stamp duty records.',    time: 'Instant', free: true,  category: 'Transparency', icon: Eye,          href: 'http://localhost:3002', intents: ['buy', 'find'] },
-  { id: 'disp',   name: 'Dispute Status Check',             nameHi: 'विवाद स्थिति',          desc: 'Check court orders, stay orders, or revenue disputes.',        time: 'Instant', free: true,  category: 'Transparency', icon: Scale,        href: 'http://localhost:3002', intents: ['buy', 'dispute'] },
+  { id: 'audit',  name: 'Who Accessed My Land',             nameHi: 'मेरी भूमि को किसने देखा', desc: 'Transparent audit of all officer and bank enquiries.',        time: 'Instant', free: true,  category: 'Transparency', icon: Eye,          href: () => getAppUrl('citizen'), intents: ['dispute', 'find'] },
+  { id: 'txn',    name: 'Transaction History',              nameHi: 'लेनदेन इतिहास',         desc: 'Complete registered deed history and stamp duty records.',    time: 'Instant', free: true,  category: 'Transparency', icon: Eye,          href: () => getAppUrl('citizen'), intents: ['buy', 'find'] },
+  { id: 'disp',   name: 'Dispute Status Check',             nameHi: 'विवाद स्थिति',          desc: 'Check court orders, stay orders, or revenue disputes.',        time: 'Instant', free: true,  category: 'Transparency', icon: Scale,        href: () => getAppUrl('citizen'), intents: ['buy', 'dispute'] },
   // Maps & GIS
-  { id: 'cad',    name: 'Cadastral Map Viewer',             nameHi: 'भूकर मानचित्र',         desc: 'Interactive map with parcel boundaries, utilities & zoning.', time: 'Instant', free: true,  category: 'Maps & GIS',   icon: Layers,       href: 'http://localhost:3000?role=tehsildar', intents: ['find', 'buy'] },
-  { id: 'zone',   name: 'Land Use & Zoning Map',            nameHi: 'भूमि उपयोग नक्शा',      desc: 'Master Plan zone, FSI, and restriction overlays.',            time: 'Instant', free: true,  category: 'Maps & GIS',   icon: BarChart3,    href: 'http://localhost:3000?role=town-planner', intents: ['buy', 'build'] },
-  { id: 'sat',    name: 'Satellite View',                   nameHi: 'उपग्रह दृश्य',          desc: 'Sentinel-2 imagery and change detection alerts.',             time: 'Instant', free: true,  category: 'Maps & GIS',   icon: MapPin,       href: 'http://localhost:3000?role=surveyor', intents: ['find'] },
+  { id: 'cad',    name: 'Cadastral Map Viewer',             nameHi: 'भूकर मानचित्र',         desc: 'Interactive map with parcel boundaries, utilities & zoning.', time: 'Instant', free: true,  category: 'Maps & GIS',   icon: Layers,       href: () => `${getAppUrl('officer')}?role=tehsildar`, intents: ['find', 'buy'] },
+  { id: 'zone',   name: 'Land Use & Zoning Map',            nameHi: 'भूमि उपयोग नक्शा',      desc: 'Master Plan zone, FSI, and restriction overlays.',            time: 'Instant', free: true,  category: 'Maps & GIS',   icon: BarChart3,    href: () => `${getAppUrl('officer')}?role=town-planner`, intents: ['buy', 'build'] },
+  { id: 'sat',    name: 'Satellite View',                   nameHi: 'उपग्रह दृश्य',          desc: 'Sentinel-2 imagery and change detection alerts.',             time: 'Instant', free: true,  category: 'Maps & GIS',   icon: MapPin,       href: () => `${getAppUrl('officer')}?role=surveyor`, intents: ['find'] },
 ];
 
 const INTENTS = [
@@ -121,7 +128,7 @@ export default function ServicesPage() {
               return (
                 <a
                   key={svc.id}
-                  href={svc.href}
+                  href={typeof svc.href === 'function' ? svc.href() : svc.href}
                   className="group bg-white rounded-xl border border-gray-200 hover:border-[#1a2e4a]/40 hover:shadow-md transition-all p-4 flex flex-col gap-3"
                 >
                   {/* Top: icon + badges */}

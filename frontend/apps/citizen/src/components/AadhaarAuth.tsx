@@ -9,6 +9,7 @@ import {
   AlertCircle,
   ArrowRight,
   Lock,
+  UserCheck,
 } from 'lucide-react';
 import { Button } from '@bhoomi/ui';
 
@@ -154,6 +155,24 @@ export function AadhaarAuth({
                 Verify your identity via Aadhaar e-KYC to access the Citizen Portal
               </p>
             </div>
+          </div>
+
+          {/* Quick Access */}
+          <button
+            type="button"
+            onClick={() => {
+              storeAuth('XXXX XXXX 4321');
+              onAuthenticated('XXXX XXXX 4321');
+            }}
+            className="w-full bg-gradient-to-r from-[#14548C] to-[#0F766E] text-white rounded-lg px-4 py-3 flex items-center justify-center gap-2 text-sm font-semibold hover:brightness-110 transition-all shadow-sm"
+          >
+            <UserCheck className="w-4 h-4" />
+            Quick Access — Skip Aadhaar Verification
+          </button>
+          <div className="flex items-center gap-3">
+            <div className="flex-1 h-px bg-[#DCE3EA]" />
+            <span className="text-[10px] text-[#4A5B6E] font-medium">or verify with Aadhaar</span>
+            <div className="flex-1 h-px bg-[#DCE3EA]" />
           </div>
 
           {/* Card */}

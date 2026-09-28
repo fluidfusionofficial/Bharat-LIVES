@@ -2,6 +2,14 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm turbo build --filter=@bhoomi/officer",
-  "outputDirectory": "apps/officer/.next"
+  "buildCommand": "pnpm turbo build --filter=@bhoomi/portal",
+  "outputDirectory": "apps/portal/.next",
+  "rewrites": [
+    { "source": "/officer/_next/:path*", "destination": "https://bharatlives-app.vercel.app/officer/_next/:path*" },
+    { "source": "/officer/:path*", "destination": "https://bharatlives-app.vercel.app/officer/:path*" },
+    { "source": "/citizen/_next/:path*", "destination": "https://bharatlives-citizen.vercel.app/citizen/_next/:path*" },
+    { "source": "/citizen/:path*", "destination": "https://bharatlives-citizen.vercel.app/citizen/:path*" },
+    { "source": "/admin/_next/:path*", "destination": "https://bharatlives-admin.vercel.app/admin/_next/:path*" },
+    { "source": "/admin/:path*", "destination": "https://bharatlives-admin.vercel.app/admin/:path*" }
+  ]
 }

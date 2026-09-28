@@ -33,7 +33,7 @@ const roles = [
   },
   {
     id: 'tehsildar',
-    title: 'Tehsildar',
+    title: 'Revenue Officer',
     titleHi: 'तहसीलदार',
     subtitle: 'Revenue Officer',
     description: 'View mutation casework, RoR records, inspect spatial overlaps, and monitor trust scores — all from cross-verified state department data.',

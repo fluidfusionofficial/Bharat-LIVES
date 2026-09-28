@@ -33,7 +33,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    setAuth({ authenticated: true, role: 'tehsildar', name: 'Demo Officer' });
+    setAuth({ authenticated: true, role: 'tehsildar', name: 'Officer' });
     setChecking(false);
   }, []);
 

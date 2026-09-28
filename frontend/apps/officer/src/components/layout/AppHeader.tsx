@@ -71,10 +71,6 @@ export default function AppHeader({ onSearch, onGoHome }: AppHeaderProps) {
     setIsFocused(false);
   }
 
-  function handleDemoClick() {
-    alert('SIH Live Demo — 8 scripted scenarios available');
-  }
-
   const filteredSuggestions = DEMO_SUGGESTIONS.filter(
     (s) =>
       s.id.toLowerCase().includes(query.toLowerCase()) ||
@@ -360,37 +356,43 @@ export default function AppHeader({ onSearch, onGoHome }: AppHeaderProps) {
           </div>
         </div>
 
-        {/* SIH Live Demo button */}
-        <button
-          onClick={handleDemoClick}
+        {/* Language selector */}
+        <select
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'linear-gradient(135deg, #14a89a, #0f766e)',
+            background: 'rgba(255,255,255,.10)',
             color: 'white',
-            fontWeight: 700,
-            fontSize: '12.5px',
-            border: 'none',
-            borderRadius: '10px',
-            padding: '9px 15px',
+            fontWeight: 600,
+            fontSize: '12px',
+            border: '1px solid rgba(255,255,255,.18)',
+            borderRadius: '8px',
+            padding: '7px 10px',
             cursor: 'pointer',
-            whiteSpace: 'nowrap',
+            outline: 'none',
+            appearance: 'none',
+            WebkitAppearance: 'none',
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'right 8px center',
+            paddingRight: '26px',
+          }}
+          defaultValue="en"
+          onChange={(e) => {
+            document.documentElement.lang = e.target.value;
           }}
         >
-          <span
-            className="bd-pulse"
-            style={{
-              display: 'inline-block',
-              width: '6px',
-              height: '6px',
-              borderRadius: '9999px',
-              background: '#baffef',
-              flexShrink: 0,
-            }}
-          />
-          SIH Live Demo
-        </button>
+          <option value="en" style={{ color: '#1f2733' }}>English</option>
+          <option value="hi" style={{ color: '#1f2733' }}>हिन्दी</option>
+          <option value="ta" style={{ color: '#1f2733' }}>தமிழ்</option>
+          <option value="te" style={{ color: '#1f2733' }}>తెలుగు</option>
+          <option value="kn" style={{ color: '#1f2733' }}>ಕನ್ನಡ</option>
+          <option value="mr" style={{ color: '#1f2733' }}>मराठी</option>
+          <option value="bn" style={{ color: '#1f2733' }}>বাংলা</option>
+          <option value="gu" style={{ color: '#1f2733' }}>ગુજરાતી</option>
+          <option value="pa" style={{ color: '#1f2733' }}>ਪੰਜਾਬੀ</option>
+          <option value="ml" style={{ color: '#1f2733' }}>മലയാളം</option>
+          <option value="or" style={{ color: '#1f2733' }}>ଓଡ଼ିଆ</option>
+          <option value="as" style={{ color: '#1f2733' }}>অসমীয়া</option>
+        </select>
       </div>
     </header>
   );

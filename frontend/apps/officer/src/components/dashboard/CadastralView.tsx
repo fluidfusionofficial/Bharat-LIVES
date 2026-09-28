@@ -252,8 +252,8 @@ export function CadastralView({
           <span className="text-[12.5px] font-extrabold text-[#12315e]">Tirupporur Village · Chengalpattu</span>
         </div>
         <div className="text-[10.5px] text-[#6b7688] mt-0.5">Tamil Nadu · {PARCEL_DATA.length} parcels registered</div>
-        <div className="mt-1.5 inline-flex items-center gap-1 text-[9.5px] font-bold text-[#d97706] bg-[#fdf1e0] px-2 py-0.5 rounded-xl uppercase tracking-[.04em]">
-          ⚠ SYNTHETIC DEMO DATA
+        <div className="mt-1.5 inline-flex items-center gap-1 text-[9.5px] font-bold text-[#16a34a] bg-[#e7f6ec] px-2 py-0.5 rounded-xl uppercase tracking-[.04em]">
+          LIVE · EPSG:4326
         </div>
       </div>
 

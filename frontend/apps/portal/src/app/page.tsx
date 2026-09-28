@@ -211,7 +211,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-lg font-serif font-bold">Access the Officer &amp; Admin Portal</h2>
-            <p className="text-sm text-white/60 mt-1">For Tehsildars, Sub-Registrars, Town Planners, Surveyors, and Collectors.</p>
+            <p className="text-sm text-white/60 mt-1">For Revenue Officers, Sub-Registrars, Town Planners, Surveyors, and Collectors.</p>
           </div>
           <div className="flex gap-3 flex-shrink-0">
             <Link

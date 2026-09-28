@@ -40,8 +40,8 @@ export interface RoleConfig {
 export const ROLE_CONFIGS: Record<OfficerRole, RoleConfig> = {
   tehsildar: {
     id: 'tehsildar',
-    title: 'Tehsildar',
-    subtitle: 'Revenue Officer',
+    title: 'Revenue Officer',
+    subtitle: 'Land Records & Mutations',
     keycloakRole: 'revenue_officer',
     color: '#14548C',
     bgColor: '#E2ECF5',

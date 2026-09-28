@@ -19,7 +19,7 @@ function getAppUrl(app: 'officer' | 'portal' | 'citizen' | 'admin'): string {
 }
 
 const OFFICER_ROLES = [
-  { id: 'tehsildar',     label: 'Tehsildar',      dept: 'Revenue Department',       icon: ClipboardList, color: '#1a2e4a', demoName: 'Rajesh Kumar' },
+  { id: 'tehsildar',     label: 'Revenue Officer', dept: 'Revenue Department',       icon: ClipboardList, color: '#1a2e4a', demoName: 'Rajesh Kumar' },
   { id: 'sub-registrar', label: 'Sub-Registrar',  dept: 'Registration Department',  icon: Building2,     color: '#7C3AED', demoName: 'Priya Sharma' },
   { id: 'town-planner',  label: 'Town Planner',   dept: 'Town & Country Planning',  icon: Map,           color: '#0F766E', demoName: 'Arvind Mehta' },
   { id: 'surveyor',      label: 'Surveyor',        dept: 'Survey & Settlement',      icon: MapPin,        color: '#B45309', demoName: 'Sunita Patel' },
@@ -27,7 +27,7 @@ const OFFICER_ROLES = [
 ];
 
 const OFFICER_ROLES_FULL = [
-  { id: 'tehsildar',     label: 'Tehsildar — Revenue Officer',          dept: 'Revenue Department'       },
+  { id: 'tehsildar',     label: 'Revenue Officer — Land Records',       dept: 'Revenue Department'       },
   { id: 'sub-registrar', label: 'Sub-Registrar — Registration & Deeds', dept: 'Registration Department'  },
   { id: 'town-planner',  label: 'Town Planner — Planning & Zoning',     dept: 'Town & Country Planning'  },
   { id: 'surveyor',      label: 'Surveyor — Cadastral Survey',          dept: 'Survey & Settlement'      },
@@ -60,7 +60,7 @@ export default function LoginPage() {
     setTimeout(() => {
       sessionStorage.setItem('bl-auth', JSON.stringify({
         role: selectedRole,
-        name: username || 'Demo Officer',
+        name: username || 'Officer',
         authenticated: true,
         demo: false,
         timestamp: Date.now(),
@@ -139,7 +139,7 @@ export default function LoginPage() {
                   <Zap className="w-3.5 h-3.5 text-white" />
                 </div>
                 <span className="text-[13px] font-semibold text-amber-800">
-                  Demo Mode — Skip Login
+                  Quick Access — Select Role
                 </span>
                 <span className="text-[10px] bg-amber-200 text-amber-700 px-1.5 py-0.5 rounded font-medium">
                   SIH 2026

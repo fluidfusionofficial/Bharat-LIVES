@@ -9,9 +9,12 @@ import {
 } from 'lucide-react';
 
 function getAppUrl(app: 'officer' | 'citizen'): string {
+  const urls: Record<string, string | undefined> = {
+    officer: process.env.NEXT_PUBLIC_OFFICER_URL,
+    citizen: process.env.NEXT_PUBLIC_CITIZEN_URL,
+  };
+  if (urls[app]) return urls[app]!;
   const ports = { officer: 3000, citizen: 3002 };
-  const envKey = `NEXT_PUBLIC_${app.toUpperCase()}_URL`;
-  try { const v = (globalThis as any).process?.env?.[envKey]; if (v) return v; } catch {}
   return `http://localhost:${ports[app]}`;
 }
 

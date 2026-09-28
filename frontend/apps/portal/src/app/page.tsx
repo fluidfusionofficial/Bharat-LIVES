@@ -8,12 +8,14 @@ import {
 } from 'lucide-react';
 
 function getAppUrl(app: 'officer' | 'portal' | 'citizen' | 'admin'): string {
+  const urls: Record<string, string | undefined> = {
+    officer: process.env.NEXT_PUBLIC_OFFICER_URL,
+    portal: process.env.NEXT_PUBLIC_PORTAL_URL,
+    citizen: process.env.NEXT_PUBLIC_CITIZEN_URL,
+    admin: process.env.NEXT_PUBLIC_ADMIN_URL,
+  };
+  if (urls[app]) return urls[app]!;
   const ports = { officer: 3000, portal: 3001, citizen: 3002, admin: 3003 };
-  const envKey = `NEXT_PUBLIC_${app.toUpperCase()}_URL`;
-  try {
-    const val = (globalThis as any).process?.env?.[envKey];
-    if (val) return val;
-  } catch {}
   return `http://localhost:${ports[app]}`;
 }
 

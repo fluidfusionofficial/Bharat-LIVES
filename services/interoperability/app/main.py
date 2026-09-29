@@ -28,7 +28,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Interoperability Service",
     version="1.0.0",
-    description="State adapter gateway, YAML mapping engine, and conformance testing for Bhoomi Dhrishti.",
+    description="State adapter gateway, YAML mapping engine, and conformance testing for BHARAT LIVES.",
     lifespan=lifespan,
 )
 

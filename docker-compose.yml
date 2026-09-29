@@ -1,7 +1,7 @@
 version: "3.9"
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Bhoomi Dhrishti – Docker Compose
+# BHARAT LIVES – Docker Compose
 # All 16 FastAPI services + supporting infrastructure
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -534,7 +534,7 @@ services:
 # ── Networks ──────────────────────────────────────────────────────────────────
 networks:
   bhoomi-net:
-    name: bhoomi-dhrishti-network
+    name: bharat-lives-network
     driver: bridge
 
 # ── Volumes ───────────────────────────────────────────────────────────────────

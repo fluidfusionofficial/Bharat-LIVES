@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     redis_url: str = "redis://redis:6379/0"
     jwt_secret: str = "changeme"
     keycloak_url: str = "http://keycloak:8080"
-    keycloak_realm: str = "bhoomi-dhrishti"
+    keycloak_realm: str = "bharat-lives"
     audit_service_url: str = "http://audit:8011"
     service_name: str = "audit"
     log_level: str = "INFO"

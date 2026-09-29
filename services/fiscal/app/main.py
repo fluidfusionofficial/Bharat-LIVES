@@ -45,7 +45,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Bhoomi Dhrishti - Fiscal Service",
+    title="BHARAT LIVES - Fiscal Service",
     description="Manages property tax assessments, annual values, arrears and payment status from ULBs",
     version="0.1.0",
     docs_url="/docs",

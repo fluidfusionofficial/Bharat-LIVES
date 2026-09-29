@@ -1,7 +1,7 @@
 {
-  "realm": "bhoomi-dhrishti",
-  "displayName": "Bhoomi Dhrishti – Land Governance Platform",
-  "displayNameHtml": "<div class='kc-logo-text'><span>Bhoomi Dhrishti</span></div>",
+  "realm": "bharat-lives",
+  "displayName": "BHARAT LIVES – Land Governance Platform",
+  "displayNameHtml": "<div class='kc-logo-text'><span>BHARAT LIVES</span></div>",
   "enabled": true,
   "sslRequired": "external",
   "registrationAllowed": false,
@@ -163,7 +163,7 @@
   "clients": [
     {
       "clientId": "citizen-app",
-      "name": "Bhoomi Dhrishti Citizen Portal",
+      "name": "BHARAT LIVES Citizen Portal",
       "description": "Public-facing citizen portal (Next.js)",
       "enabled": true,
       "publicClient": true,
@@ -188,7 +188,7 @@
     },
     {
       "clientId": "officer-console",
-      "name": "Bhoomi Dhrishti Officer Console",
+      "name": "BHARAT LIVES Officer Console",
       "description": "Internal officer-facing console for revenue, registration and planning staff",
       "enabled": true,
       "publicClient": false,
@@ -212,7 +212,7 @@
     },
     {
       "clientId": "admin-console",
-      "name": "Bhoomi Dhrishti Admin Console",
+      "name": "BHARAT LIVES Admin Console",
       "description": "System admin and state-level administrative console",
       "enabled": true,
       "publicClient": false,
@@ -233,7 +233,7 @@
     },
     {
       "clientId": "service-account",
-      "name": "Bhoomi Dhrishti Service Account",
+      "name": "BHARAT LIVES Service Account",
       "description": "Machine-to-machine client for inter-service communication and external system adapters",
       "enabled": true,
       "publicClient": false,

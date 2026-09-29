@@ -210,7 +210,7 @@ def main():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhoomi Dhrishti - Synthetic Data Analytics</title>
+<title>BHARAT LIVES - Synthetic Data Analytics</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
   :root {{
@@ -256,7 +256,7 @@ def main():
 <body>
 
 <div class="header">
-  <h1>Bhoomi Dhrishti &mdash; Synthetic Data Analytics</h1>
+  <h1>BHARAT LIVES &mdash; Synthetic Data Analytics</h1>
   <p>Comparison of generated synthetic dataset against real-world Indian land record benchmarks</p>
   <div class="meta">
     <span>Generated: {datetime.now().strftime('%d %b %Y, %H:%M')}</span>
@@ -441,7 +441,7 @@ def main():
 </div>
 
 <div style="text-align:center; padding:30px 0; color:var(--text2); font-size:0.8rem;">
-  Bhoomi Dhrishti &mdash; SIH 2026, PS-26014, Ministry of Rural Development / DoLR<br>
+  BHARAT LIVES &mdash; SIH 2026, PS-26014, Ministry of Rural Development / DoLR<br>
   Synthetic data calibrated against: Agricultural Census 2015-16, NFHS-5, DILRMP Dashboard, TN Bhoomi, CH Estate Office
 </div>
 

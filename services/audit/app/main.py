@@ -28,7 +28,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Audit Service",
     version="1.0.0",
-    description="Append-only audit trail with hash-chain integrity for Bhoomi Dhrishti.",
+    description="Append-only audit trail with hash-chain integrity for BHARAT LIVES.",
     lifespan=lifespan,
 )
 

@@ -6,7 +6,7 @@ BASE_URL="http://localhost:8005"
 API_BASE="${BASE_URL}/ingest"
 
 echo "======================================================================"
-echo "Bhoomi Dhrishti - ETL Mapping Engine API Examples"
+echo "BHARAT LIVES - ETL Mapping Engine API Examples"
 echo "======================================================================"
 echo ""
 

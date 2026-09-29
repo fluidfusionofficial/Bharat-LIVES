@@ -1,8 +1,8 @@
-# Bhoomi Dhrishti - Demo Startup Script (Simple Version)
+# BHARAT LIVES - Demo Startup Script (Simple Version)
 # Run with: .\start-demo-simple.ps1
 
 Write-Host "=======================================" -ForegroundColor Green
-Write-Host "Starting Bhoomi Dhrishti Demo..." -ForegroundColor Green
+Write-Host "Starting BHARAT LIVES Demo..." -ForegroundColor Green
 Write-Host "=======================================" -ForegroundColor Green
 Write-Host ""
 
@@ -59,11 +59,11 @@ Write-Host ""
 
 # Start frontend apps
 Write-Host "Starting Officer Console (port 3000)..." -ForegroundColor Cyan
-Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd D:\\Bhoomi Dhrishti\\bhoomi-dhrishti\\frontend\\apps\\officer && npx next dev -p 3000 > D:\\Bhoomi Dhrishti\\bhoomi-dhrishti\\officer.log 2>&1" -WindowStyle Hidden
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd D:\\BHARAT LIVES\\bharat-lives\\frontend\\apps\\officer && npx next dev -p 3000 > D:\\BHARAT LIVES\\bharat-lives\\officer.log 2>&1" -WindowStyle Hidden
 Write-Host "Starting Citizen Portal (port 3002)..." -ForegroundColor Cyan
-Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd D:\\Bhoomi Dhrishti\\bhoomi-dhrishti\\frontend\\apps\\citizen && npx next dev -p 3002 > D:\\Bhoomi Dhrishti\\bhoomi-dhrishti\\citizen.log 2>&1" -WindowStyle Hidden
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd D:\\BHARAT LIVES\\bharat-lives\\frontend\\apps\\citizen && npx next dev -p 3002 > D:\\BHARAT LIVES\\bharat-lives\\citizen.log 2>&1" -WindowStyle Hidden
 Write-Host "Starting Admin Console (port 3003)..." -ForegroundColor Cyan
-Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd D:\\Bhoomi Dhrishti\\bhoomi-dhrishti\\frontend\\apps\\admin && npx next dev -p 3003 > D:\\Bhoomi Dhrishti\\bhoomi-dhrishti\\admin.log 2>&1" -WindowStyle Hidden
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd D:\\BHARAT LIVES\\bharat-lives\\frontend\\apps\\admin && npx next dev -p 3003 > D:\\BHARAT LIVES\\bharat-lives\\admin.log 2>&1" -WindowStyle Hidden
 Write-Host "Waiting 30 seconds for frontend apps to start..." -ForegroundColor Gray
 Start-Sleep -Seconds 30
 Write-Host ""
@@ -74,7 +74,7 @@ docker-compose ps
 Write-Host ""
 
 Write-Host "=======================================" -ForegroundColor Green
-Write-Host "Bhoomi Dhrishti Demo is Ready!" -ForegroundColor Green
+Write-Host "BHARAT LIVES Demo is Ready!" -ForegroundColor Green
 Write-Host "=======================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "Access Points:" -ForegroundColor Yellow

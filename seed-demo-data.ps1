@@ -1,7 +1,7 @@
-# Bhoomi Dhrishti - Seed Demo Data Script for Windows PowerShell
+# BHARAT LIVES - Seed Demo Data Script for Windows PowerShell
 # Run after services are started: .\seed-demo-data.ps1
 
-Write-Host "🌱 Seeding Bhoomi Dhrishti Demo Data..." -ForegroundColor Green
+Write-Host "🌱 Seeding BHARAT LIVES Demo Data..." -ForegroundColor Green
 Write-Host ""
 
 # Step 1: Generate mock data

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────────────────────
-# Bhoomi Dhrishti – One-Command Demo Startup
+# BHARAT LIVES – One-Command Demo Startup
 # Starts all services, waits for health checks, and seeds demo data
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -11,7 +11,7 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
 cd "$PROJECT_ROOT"
 
-echo "🚀 Starting Bhoomi Dhrishti Demo..."
+echo "🚀 Starting BHARAT LIVES Demo..."
 echo "   Project root: $PROJECT_ROOT"
 echo ""
 
@@ -99,7 +99,7 @@ docker compose ps
 
 echo ""
 echo "══════════════════════════════════════════════════════════════════════════"
-echo "✓ Bhoomi Dhrishti is running!"
+echo "✓ BHARAT LIVES is running!"
 echo "══════════════════════════════════════════════════════════════════════════"
 echo ""
 echo "🌐 Access Points:"

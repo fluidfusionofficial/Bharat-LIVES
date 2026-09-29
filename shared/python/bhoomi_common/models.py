@@ -119,7 +119,7 @@ class ProvenanceBase(BhoomiBased):
 
 class ParcelBase(BhoomiBased):
     """Minimal parcel fields shared across create/update/response."""
-    bdpr: str = Field(..., description="Bhoomi Dhrishti Parcel Reference (BD-<STATE>-<SEQ>)", pattern=r"^BD-[A-Z]{2}-\d{7}$")
+    bdpr: str = Field(..., description="BHARAT LIVES Parcel Reference (BD-<STATE>-<SEQ>)", pattern=r"^BD-[A-Z]{2}-\d{7}$")
     ulpin: Optional[str] = Field(None, description="ULPIN (20-char national identifier from DILRMP)")
     state_code: str = Field(..., description="LGD state code", max_length=10)
     district_code: str = Field(..., description="LGD district code", max_length=10)
@@ -260,7 +260,7 @@ class ErrorDetail(BhoomiBased):
 
 
 class ErrorResponse(BhoomiBased):
-    """Standard error response body for all Bhoomi Dhrishti APIs."""
+    """Standard error response body for all BHARAT LIVES APIs."""
     error: str = Field(..., description="Machine-readable error code (UPPER_SNAKE_CASE)")
     message: str = Field(..., description="Human-readable error message")
     details: Optional[List[ErrorDetail]] = None

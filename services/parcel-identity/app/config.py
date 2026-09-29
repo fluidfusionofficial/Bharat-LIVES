@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     REDIS_URL: str = "redis://redis:6379/0"
     JWT_SECRET: str = "change-me-in-production"
     KEYCLOAK_URL: str = "http://keycloak:8080"
-    KEYCLOAK_REALM: str = "bhoomi-dhrishti"
+    KEYCLOAK_REALM: str = "bharat-lives"
     AUDIT_SERVICE_URL: str = "http://audit:8011"
     LOG_LEVEL: str = "INFO"
 

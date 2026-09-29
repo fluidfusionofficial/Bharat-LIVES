@@ -96,11 +96,11 @@
   ],
   "refresh": "30s",
   "schemaVersion": 38,
-  "tags": ["bhoomi-dhrishti", "land-governance"],
+  "tags": ["bharat-lives", "land-governance"],
   "time": { "from": "now-1h", "to": "now" },
   "timepicker": {},
   "timezone": "Asia/Kolkata",
-  "title": "Bhoomi Dhrishti Platform Overview",
+  "title": "BHARAT LIVES Platform Overview",
   "uid": "bhoomi-main-dashboard",
   "version": 1
 }

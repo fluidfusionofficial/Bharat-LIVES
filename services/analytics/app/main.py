@@ -28,7 +28,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Analytics Service",
     version="1.0.0",
-    description="Dashboard aggregations, KPIs, and service delivery metrics for Bhoomi Dhrishti.",
+    description="Dashboard aggregations, KPIs, and service delivery metrics for BHARAT LIVES.",
     lifespan=lifespan,
 )
 

@@ -1,5 +1,5 @@
 """
-Generate brainstorming report for Bhoomi Dhrishti architecture evolution
+Generate brainstorming report for BHARAT LIVES architecture evolution
 as a Word document (.docx)
 """
 
@@ -71,7 +71,7 @@ def create_report():
 
     title = doc.add_paragraph()
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = title.add_run('BHOOMI DHRISHTI')
+    run = title.add_run('BHARAT LIVES')
     run.bold = True
     run.font.size = Pt(36)
     run.font.color.rgb = RGBColor(27, 79, 114)
@@ -152,7 +152,7 @@ def create_report():
 
     p = doc.add_paragraph()
     run = p.add_run('"India digitized its land records department by department, state by state. '
-                     'Nobody built the bridge between them. That bridge is Bhoomi Dhrishti."')
+                     'Nobody built the bridge between them. That bridge is BHARAT LIVES."')
     run.italic = True
     run.font.size = Pt(12)
 
@@ -182,7 +182,7 @@ def create_report():
         'An MCP-like architecture where:'
     )
     items = [
-        'Host = A custom Reinforcement Learning algorithm sitting on the central Bhoomi Dhrishti server',
+        'Host = A custom Reinforcement Learning algorithm sitting on the central BHARAT LIVES server',
         'Servers = Each of the 28 states + 8 UTs land record systems, connected via adapters',
         'No centralized database — data stays with states, queried in real-time',
         'The RL agent learns how to retrieve, translate, and reconcile data across heterogeneous systems',
@@ -338,7 +338,7 @@ def create_report():
 
     doc.add_paragraph('Evolved approach (LLM-assisted):')
     items = [
-        'LLM analyzes a state\'s data schema and proposes mappings to canonical Bhoomi Dhrishti schema',
+        'LLM analyzes a state\'s data schema and proposes mappings to canonical BHARAT LIVES schema',
         'Human reviews and confirms (human-in-the-loop for safety)',
         'Once confirmed, mapping becomes a deterministic rule (Tier 1)',
         'RL agent monitors mapping quality over time and flags drift',
@@ -387,7 +387,7 @@ def create_report():
     run = p.add_run('The key insight: ')
     run.bold = True
     p.add_run(
-        'Bhoomi Dhrishti is not an application or a platform. It is infrastructure — like UPI is '
+        'BHARAT LIVES is not an application or a platform. It is infrastructure — like UPI is '
         'infrastructure for payments. States participate voluntarily because the infrastructure '
         'makes their own systems more valuable, not because it replaces them.'
     )
@@ -397,7 +397,7 @@ def create_report():
         'India has already proven the DPI model works at scale:'
     )
     add_styled_table(doc,
-        ['Layer', 'India Stack Example', 'Bhoomi Dhrishti Equivalent'],
+        ['Layer', 'India Stack Example', 'BHARAT LIVES Equivalent'],
         [
             ['Identity', 'Aadhaar (1.4B IDs)', 'BDPR / ULPIN (408.5M parcels)'],
             ['Payments', 'UPI (federated, bank-to-bank)', 'Land Data Space (federated, state-to-state)'],
@@ -529,7 +529,7 @@ def create_report():
     doc.add_paragraph('How it works:')
     items = [
         'Each state runs a local ML model on their land record data',
-        'Only model gradients/weights are sent to the central Bhoomi Dhrishti server',
+        'Only model gradients/weights are sent to the central BHARAT LIVES server',
         'Central server aggregates weights using federated averaging (FedAvg)',
         'Updated global model is sent back to states',
         'Result: ML intelligence from ALL states\' data, but no state\'s data leaves their jurisdiction',
@@ -817,7 +817,7 @@ def create_report():
     doc.add_heading('12.2 Priority 2: Live Schema Auto-Mapping (Technical Differentiator)', level=2)
     doc.add_paragraph(
         'Show the LLM analyzing a new state\'s data schema and proposing mappings to the canonical '
-        'Bhoomi Dhrishti schema — live, on stage. Then show the human confirming the mapping. Then '
+        'BHARAT LIVES schema — live, on stage. Then show the human confirming the mapping. Then '
         'show data flowing through immediately. This replaces weeks of manual mapping.yaml work.'
     )
     doc.add_paragraph('Build time estimate: 1-2 weeks (LLM integration + mapping UI)')
@@ -942,7 +942,7 @@ def create_report():
     # SAVE
     # ================================================================
     output_dir = os.path.dirname(os.path.abspath(__file__))
-    output_path = os.path.join(os.path.dirname(output_dir), 'Bhoomi_Dhrishti_Brainstorm.docx')
+    output_path = os.path.join(os.path.dirname(output_dir), 'bharat_lives_Brainstorm.docx')
     doc.save(output_path)
     print(f"Report saved to: {output_path}")
     return output_path

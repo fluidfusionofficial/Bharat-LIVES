@@ -1,8 +1,8 @@
-# Bhoomi Dhrishti - Seed Demo Data (Simple Version)
+# BHARAT LIVES - Seed Demo Data (Simple Version)
 # Run after services are started: .\seed-demo-data-simple.ps1
 
 Write-Host "=======================================" -ForegroundColor Green
-Write-Host "Seeding Bhoomi Dhrishti Demo Data..." -ForegroundColor Green
+Write-Host "Seeding BHARAT LIVES Demo Data..." -ForegroundColor Green
 Write-Host "=======================================" -ForegroundColor Green
 Write-Host ""
 

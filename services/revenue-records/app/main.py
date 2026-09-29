@@ -28,7 +28,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Revenue Records Service",
     version="1.0.0",
-    description="Manages Records of Rights, land rights, mutations, and parties for Bhoomi Dhrishti.",
+    description="Manages Records of Rights, land rights, mutations, and parties for BHARAT LIVES.",
     lifespan=lifespan,
 )
 

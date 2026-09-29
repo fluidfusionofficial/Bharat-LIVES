@@ -1,9 +1,9 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Bhoomi Dhrishti – State Field Mapping
+# BHARAT LIVES – State Field Mapping
 # State: Chandigarh (CH) | Type: Urban Ward | Source System: CH Municipal
 # ─────────────────────────────────────────────────────────────────────────────
 # This file maps Chandigarh Municipal Corporation's property registry and
-# Estate Office data to Bhoomi Dhrishti canonical fields.
+# Estate Office data to BHARAT LIVES canonical fields.
 #
 # Sources:
 #   - Chandigarh Estate Office (Sector-based lease / allotment records)

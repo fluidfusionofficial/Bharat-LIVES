@@ -1,7 +1,1 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs",
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm turbo build --filter=@bhoomi/officer",
-  "outputDirectory": "apps/officer/.next"
-}
+{"framework":"nextjs","installCommand":"pnpm install","buildCommand":"pnpm turbo build --filter=@bhoomi/citizen","outputDirectory":"apps/citizen/.next"}

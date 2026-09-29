@@ -1,8 +1,8 @@
 {
   "info": {
-    "_postman_id": "bhoomi-dhrishti-2026",
-    "name": "Bhoomi Dhrishti – Complete API Collection",
-    "description": "Integrated GIS-based Digital Public Infrastructure for Land Governance. SIH 2026 PS-26014 (Ministry of Rural Development, DoLR). 16 FastAPI microservices behind Nginx API gateway at http://localhost:8000. Keycloak auth at http://localhost:8080/realms/bhoomi-dhrishti. Demo users: officer@tn.gov.in/demo123, citizen@example.com/demo123, admin@bhoomi.gov.in/demo123.",
+    "_postman_id": "bharat-lives-2026",
+    "name": "BHARAT LIVES – Complete API Collection",
+    "description": "Integrated GIS-based Digital Public Infrastructure for Land Governance. SIH 2026 PS-26014 (Ministry of Rural Development, DoLR). 16 FastAPI microservices behind Nginx API gateway at http://localhost:8000. Keycloak auth at http://localhost:8080/realms/bharat-lives. Demo users: officer@tn.gov.in/demo123, citizen@example.com/demo123, admin@bhoomi.gov.in/demo123.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -142,13 +142,13 @@
               ]
             },
             "url": {
-              "raw": "{{keycloak_url}}/realms/bhoomi-dhrishti/protocol/openid-connect/token",
+              "raw": "{{keycloak_url}}/realms/bharat-lives/protocol/openid-connect/token",
               "host": [
                 "{{keycloak_url}}"
               ],
               "path": [
                 "realms",
-                "bhoomi-dhrishti",
+                "bharat-lives",
                 "protocol",
                 "openid-connect",
                 "token"
@@ -211,13 +211,13 @@
               ]
             },
             "url": {
-              "raw": "{{keycloak_url}}/realms/bhoomi-dhrishti/protocol/openid-connect/token",
+              "raw": "{{keycloak_url}}/realms/bharat-lives/protocol/openid-connect/token",
               "host": [
                 "{{keycloak_url}}"
               ],
               "path": [
                 "realms",
-                "bhoomi-dhrishti",
+                "bharat-lives",
                 "protocol",
                 "openid-connect",
                 "token"
@@ -280,13 +280,13 @@
               ]
             },
             "url": {
-              "raw": "{{keycloak_url}}/realms/bhoomi-dhrishti/protocol/openid-connect/token",
+              "raw": "{{keycloak_url}}/realms/bharat-lives/protocol/openid-connect/token",
               "host": [
                 "{{keycloak_url}}"
               ],
               "path": [
                 "realms",
-                "bhoomi-dhrishti",
+                "bharat-lives",
                 "protocol",
                 "openid-connect",
                 "token"
@@ -345,13 +345,13 @@
               ]
             },
             "url": {
-              "raw": "{{keycloak_url}}/realms/bhoomi-dhrishti/protocol/openid-connect/token",
+              "raw": "{{keycloak_url}}/realms/bharat-lives/protocol/openid-connect/token",
               "host": [
                 "{{keycloak_url}}"
               ],
               "path": [
                 "realms",
-                "bhoomi-dhrishti",
+                "bharat-lives",
                 "protocol",
                 "openid-connect",
                 "token"
@@ -1649,7 +1649,7 @@
                 }
               ]
             },
-            "description": "Returns a WFS 2.0.0 GetCapabilities XML document advertising Bhoomi Dhrishti feature types. Accepted by QGIS, ArcGIS Pro, OpenLayers, and other OGC-compliant clients."
+            "description": "Returns a WFS 2.0.0 GetCapabilities XML document advertising BHARAT LIVES feature types. Accepted by QGIS, ArcGIS Pro, OpenLayers, and other OGC-compliant clients."
           },
           "response": []
         },
@@ -3006,7 +3006,7 @@
                 "states"
               ]
             },
-            "description": "Returns all states onboarded into Bhoomi Dhrishti with tier, parcel count, last sync time, and participating departments."
+            "description": "Returns all states onboarded into BHARAT LIVES with tier, parcel count, last sync time, and participating departments."
           },
           "response": []
         },
@@ -3234,7 +3234,7 @@
                 "validate"
               ]
             },
-            "description": "Parses and validates a YAML field-mapping configuration string against the Bhoomi Dhrishti mapping schema without persisting it. Returns a list of errors if invalid."
+            "description": "Parses and validates a YAML field-mapping configuration string against the BHARAT LIVES mapping schema without persisting it. Returns a list of errors if invalid."
           },
           "response": []
         },
@@ -3870,7 +3870,7 @@
     },
     {
       "name": "📦 Revenue Records (RoR)",
-      "description": "Manages Records of Rights (RoR), land rights, mutations, and parties for the Bhoomi Dhrishti land governance platform. Handles ownership history, tenancy/share-crop rights, mutation lifecycle (create/approve/reject), and party (landholder) search and lookup.",
+      "description": "Manages Records of Rights (RoR), land rights, mutations, and parties for the BHARAT LIVES land governance platform. Handles ownership history, tenancy/share-crop rights, mutation lifecycle (create/approve/reject), and party (landholder) search and lookup.",
       "item": [
         {
           "name": "Health Liveness",
@@ -4925,7 +4925,7 @@
     },
     {
       "name": "📦 Citizen Services",
-      "description": "Tiered parcel profiles with disclosure controls, citizen service applications (mutation, encumbrance certificate, building permit, dispute filing, land use change, boundary correction), and application tracking for the Bhoomi Dhrishti land governance platform.",
+      "description": "Tiered parcel profiles with disclosure controls, citizen service applications (mutation, encumbrance certificate, building permit, dispute filing, land use change, boundary correction), and application tracking for the BHARAT LIVES land governance platform.",
       "item": [
         {
           "name": "Health Check",
@@ -5229,7 +5229,7 @@
     },
     {
       "name": "📦 Analytics & NL Query",
-      "description": "Dashboard aggregations, KPIs, conflict taxonomy, resolution metrics, onboarding tiers, land-use trends, service delivery metrics, and natural language SQL query interface for the Bhoomi Dhrishti land governance platform.",
+      "description": "Dashboard aggregations, KPIs, conflict taxonomy, resolution metrics, onboarding tiers, land-use trends, service delivery metrics, and natural language SQL query interface for the BHARAT LIVES land governance platform.",
       "item": [
         {
           "name": "Health Check",

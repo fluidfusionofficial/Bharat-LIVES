@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name="bhoomi-common",
     version="0.1.0",
-    description="Shared library for all Bhoomi Dhrishti FastAPI services",
-    author="Bhoomi Dhrishti Platform Team",
+    description="Shared library for all BHARAT LIVES FastAPI services",
+    author="BHARAT LIVES Platform Team",
     python_requires=">=3.11",
     packages=find_packages(),
     install_requires=[

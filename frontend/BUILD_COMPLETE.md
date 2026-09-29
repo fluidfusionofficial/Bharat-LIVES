@@ -2,7 +2,7 @@
 
 ## Summary
 
-Complete Next.js 14 frontend monorepo for Bhoomi Dhrishti has been built with all specified features.
+Complete Next.js 14 frontend monorepo for BHARAT LIVES has been built with all specified features.
 
 ## What Was Built
 

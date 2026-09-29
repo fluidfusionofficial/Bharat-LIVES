@@ -45,7 +45,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Bhoomi Dhrishti � Trust Engine",
+    title="BHARAT LIVES � Trust Engine",
     description="Cross-registry conflict detection, confidence scoring and dispute resolution workflow",
     version="0.1.0",
     docs_url="/docs",

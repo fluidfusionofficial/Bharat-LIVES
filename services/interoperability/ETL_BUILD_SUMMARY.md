@@ -1,6 +1,6 @@
 # ETL Mapping Engine - Build Summary
 
-**Project**: Bhoomi Dhrishti Interoperability Service  
+**Project**: BHARAT LIVES Interoperability Service  
 **Component**: ETL Mapping Engine  
 **Version**: 1.0  
 **Date**: 2026-09-15  

@@ -72,9 +72,9 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 # ---------------------------------------------------------------------------
 
 app = FastAPI(
-    title="Bhoomi Dhrishti – Geospatial Service",
+    title="BHARAT LIVES – Geospatial Service",
     description=(
-        "PostGIS-powered geospatial API for the Bhoomi Dhrishti land governance "
+        "PostGIS-powered geospatial API for the BHARAT LIVES land governance "
         "platform.  Serves vector tiles, GeoJSON geometries, OGC capabilities, "
         "and spatial query results. (SIH 2026, PS-26014)"
     ),

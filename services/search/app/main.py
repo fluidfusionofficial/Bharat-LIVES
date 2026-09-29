@@ -28,7 +28,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Search Service",
     version="1.0.0",
-    description="Full-text, spatial, and natural-language parcel search for Bhoomi Dhrishti.",
+    description="Full-text, spatial, and natural-language parcel search for BHARAT LIVES.",
     lifespan=lifespan,
 )
 

@@ -63,17 +63,104 @@ officer-*.png
 verify-*.png
 landeed/
 
-# Documentation artifacts (not code)
+# ─────────────────────────────────────────────
+# Documentation & Research artifacts
+# ─────────────────────────────────────────────
+
+# Root-level research / ideation documents
+Bhoomi_Dhrishti_Research_Report.docx
+Bhoomi_Dhrishti_Brainstorm.docx
+Bhoomi_Dhrishti_Ideation_Session2.docx
+*.docx
+*.doc
+*.pdf
+*.pptx
+*.ppt
+*.xlsx
+*.xls
+
+# docs/ folder (architecture diagrams, narratives, API docs)
+docs/
+
+# ETL / service-level documentation markdowns
+services/interoperability/ETL_BUILD_SUMMARY.md
+services/interoperability/ETL_ENGINE_README.md
+services/interoperability/ETL_QUICK_REFERENCE.md
+
+# Root-level generated / handoff markdown files
+BUILD_COMPLETE.md
+SYSTEM_READY.md
+FINAL_HANDOFF.md
+DEPLOYMENT_GUIDE.md
+DEMO_VALIDATION_CHECKLIST.md
+ML_IMPLEMENTATION_SUMMARY.md
+ML_INTELLIGENCE_README.md
+START_HERE.md
+QUICK_START.md
 frontend/START_GUIDE.md
 frontend/BUILD_COMPLETE.md
 frontend/QUICK_START.md
-frontend/frontend-startup.log
+frontend/README.md
 
+# ─────────────────────────────────────────────
+# Agent / AI tool artifacts
+# ─────────────────────────────────────────────
+
+# Claude / Antigravity agent configs and sessions
+.claude/
+frontend/.claude/
+CLAUDE.md
+.mcp.json
+
+# Playwright MCP (browser agent sessions)
+.playwright-mcp/
+*.playwright-mcp*
+
+# ─────────────────────────────────────────────
+# Screenshots & reference images
+# ─────────────────────────────────────────────
+
+screenshot-*.png
+officer-*.png
+verify-*.png
+landeed/
+loginfixed.html
+dataset/analytics_report.html
+
+# ─────────────────────────────────────────────
+# Logs (runtime & dev)
+# ─────────────────────────────────────────────
+
+*.log
+frontend/frontend-startup.log
+admin.log
+admin-dev.log
+citizen.log
+citizen-dev.log
+officer.log
+officer-dev.log
+frontend-dev.log
+
+# ─────────────────────────────────────────────
+# Dataset & generated data
+# ─────────────────────────────────────────────
+
+dataset/
+data/generator/output/
+data/raw/
+
+# ─────────────────────────────────────────────
 # OS junk
+# ─────────────────────────────────────────────
+
 desktop.ini
 Thumbs.db
+.DS_Store
 
+# ─────────────────────────────────────────────
 # Misc
+# ─────────────────────────────────────────────
+
 *.tmp
 *.bak
 .terraform/

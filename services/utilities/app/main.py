@@ -45,7 +45,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Bhoomi Dhrishti - Utilities Service",
+    title="BHARAT LIVES - Utilities Service",
     description="Tracks water, electricity and piped gas connections linked to parcels",
     version="0.1.0",
     docs_url="/docs",

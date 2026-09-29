@@ -1,4 +1,4 @@
-# ETL Mapping Engine - Bhoomi Dhrishti Interoperability Service
+# ETL Mapping Engine - BHARAT LIVES Interoperability Service
 
 ## Overview
 
@@ -403,4 +403,4 @@ curl -X POST "http://localhost:8005/ingest/revenue_ror?conflict_strategy=ignore"
 For issues or questions:
 - Check logs: `structlog` output in JSON format
 - Review DQ reports: `data/processed/*_dq_report.json`
-- Contact: bhoomi-dhrishti-support@example.com
+- Contact: bharat-lives-support@example.com

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────────────────────
-# Bhoomi Dhrishti – Demo Data Seeding Script
+# BHARAT LIVES – Demo Data Seeding Script
 # Seeds deterministic demo data for hackathon presentation
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -9,7 +9,7 @@ set -e  # Exit on error
 BASE_URL="${BASE_URL:-http://localhost:8000}"
 SEED=42
 
-echo "🌱 Seeding Bhoomi Dhrishti demo database..."
+echo "🌱 Seeding BHARAT LIVES demo database..."
 echo "   Base URL: $BASE_URL"
 echo "   Seed: $SEED"
 echo ""
@@ -192,7 +192,7 @@ echo ""
 echo "👥 Step 8: Creating demo users in Keycloak..."
 
 KEYCLOAK_URL="${KEYCLOAK_URL:-http://localhost:8080}"
-REALM="bhoomi-dhrishti"
+REALM="bharat-lives"
 
 # Get admin token
 ADMIN_TOKEN=$(curl -X POST "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" \

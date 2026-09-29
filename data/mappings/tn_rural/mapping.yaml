@@ -1,9 +1,9 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Bhoomi Dhrishti – State Field Mapping
+# BHARAT LIVES – State Field Mapping
 # State: Tamil Nadu (TN) | Type: Rural Village | Source System: TN Bhoomi
 # ─────────────────────────────────────────────────────────────────────────────
 # This file teaches the interoperability service how to translate TN Bhoomi
-# source fields to Bhoomi Dhrishti canonical fields.
+# source fields to BHARAT LIVES canonical fields.
 #
 # Tested against: Tirunelveli district Pahani extract (2024 format)
 # ─────────────────────────────────────────────────────────────────────────────

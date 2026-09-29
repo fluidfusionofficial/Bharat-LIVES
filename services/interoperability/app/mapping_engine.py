@@ -1,5 +1,5 @@
 """
-YAML-based mapping engine for the Bhoomi Dhrishti interoperability layer.
+YAML-based mapping engine for the BHARAT LIVES interoperability layer.
 
 Reads a mapping config (loaded from YAML) and transforms source records
 into canonical Bhoomi schema records.

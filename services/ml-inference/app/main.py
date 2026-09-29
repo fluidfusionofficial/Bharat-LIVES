@@ -45,7 +45,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Bhoomi Dhrishti - ML Inference Service",
+    title="BHARAT LIVES - ML Inference Service",
     description="ML conflict scoring, probabilistic entity resolution, and transaction network anomaly detection",
     version="0.1.0",
     docs_url="/docs",

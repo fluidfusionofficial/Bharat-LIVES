@@ -1,7 +1,7 @@
-# Bhoomi Dhrishti - Demo Startup Script for Windows PowerShell
+# BHARAT LIVES - Demo Startup Script for Windows PowerShell
 # Run with: .\start-demo.ps1
 
-Write-Host "🚀 Starting Bhoomi Dhrishti Demo..." -ForegroundColor Green
+Write-Host "🚀 Starting BHARAT LIVES Demo..." -ForegroundColor Green
 Write-Host ""
 
 # Step 1: Start infrastructure services
@@ -40,7 +40,7 @@ docker-compose ps
 
 Write-Host ""
 Write-Host "═══════════════════════════════════════════════════════════" -ForegroundColor Green
-Write-Host "✨ Bhoomi Dhrishti Demo is Ready!" -ForegroundColor Green
+Write-Host "✨ BHARAT LIVES Demo is Ready!" -ForegroundColor Green
 Write-Host "═══════════════════════════════════════════════════════════" -ForegroundColor Green
 Write-Host ""
 Write-Host "🌐 Access Points:" -ForegroundColor Yellow

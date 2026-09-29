@@ -1,6 +1,6 @@
 # Tamil Nadu Revenue Department Mapping Config
 # Source: Patta Chitta CSV export (land records system)
-# Target: Bhoomi Dhrishti canonical revenue schema
+# Target: BHARAT LIVES canonical revenue schema
 # Version: 1.0
 
 source: "tn_revenue_system"

@@ -300,4 +300,4 @@ black app/ tests/
 
 **Examples**: See `examples/` directory for working code samples
 
-**Support**: bhoomi-dhrishti-support@example.com
+**Support**: bharat-lives-support@example.com

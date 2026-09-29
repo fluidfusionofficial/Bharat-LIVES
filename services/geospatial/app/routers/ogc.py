@@ -3,7 +3,7 @@ OGC WFS 2.0 and WMS 1.3.0 GetCapabilities stubs.
 
 These endpoints provide standards-compliant capability documents so that
 desktop GIS tools (QGIS, ArcGIS, OpenLayers) can discover and load
-Bhoomi Dhrishti layers without needing bespoke connectors.
+BHARAT LIVES layers without needing bespoke connectors.
 
 Both documents are minimal but structurally valid according to the
 respective OGC schemas.  Full GetFeature / GetMap support is left for a
@@ -38,8 +38,8 @@ _WFS_CAPABILITIES = """\
 
   <!-- ── Service Identification ─────────────────────────────────────────── -->
   <ows:ServiceIdentification>
-    <ows:Title>Bhoomi Dhrishti WFS</ows:Title>
-    <ows:Abstract>Land parcel vector feature service for the Bhoomi Dhrishti
+    <ows:Title>BHARAT LIVES WFS</ows:Title>
+    <ows:Abstract>Land parcel vector feature service for the BHARAT LIVES
       land governance platform (SIH 2026, PS-26014).</ows:Abstract>
     <ows:Keywords>
       <ows:Keyword>land</ows:Keyword>
@@ -56,7 +56,7 @@ _WFS_CAPABILITIES = """\
 
   <!-- ── Service Provider ───────────────────────────────────────────────── -->
   <ows:ServiceProvider>
-    <ows:ProviderName>Bhoomi Dhrishti Platform</ows:ProviderName>
+    <ows:ProviderName>BHARAT LIVES Platform</ows:ProviderName>
     <ows:ServiceContact>
       <ows:ContactInfo>
         <ows:OnlineResource xlink:type="simple" xlink:href="https://bhoomidhrishti.gov.in"/>
@@ -169,8 +169,8 @@ _WMS_CAPABILITIES = """\
 
   <Service>
     <Name>WMS</Name>
-    <Title>Bhoomi Dhrishti WMS</Title>
-    <Abstract>Web Map Service for Bhoomi Dhrishti land parcel layers.</Abstract>
+    <Title>BHARAT LIVES WMS</Title>
+    <Abstract>Web Map Service for BHARAT LIVES land parcel layers.</Abstract>
     <KeywordList>
       <Keyword>land</Keyword>
       <Keyword>parcel</Keyword>
@@ -211,7 +211,7 @@ _WMS_CAPABILITIES = """\
     </Exception>
 
     <Layer>
-      <Title>Bhoomi Dhrishti</Title>
+      <Title>BHARAT LIVES</Title>
       <CRS>EPSG:4326</CRS>
       <CRS>EPSG:3857</CRS>
       <EX_GeographicBoundingBox>
@@ -300,6 +300,6 @@ async def wms_capabilities(
     """
     Returns a WMS 1.3.0 GetCapabilities document.
 
-    Allows desktop GIS clients to render Bhoomi Dhrishti layers as raster maps.
+    Allows desktop GIS clients to render BHARAT LIVES layers as raster maps.
     """
     return Response(content=_WMS_CAPABILITIES, media_type=_XML_CONTENT_TYPE)

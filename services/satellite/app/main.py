@@ -45,7 +45,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Bhoomi Dhrishti � Satellite Service",
+    title="BHARAT LIVES � Satellite Service",
     description="Satellite watch service: NDVI/NDBI land-use change detection using Sentinel-2 and Cartosat imagery",
     version="0.1.0",
     docs_url="/docs",

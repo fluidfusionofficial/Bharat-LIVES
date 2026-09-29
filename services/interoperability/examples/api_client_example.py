@@ -86,7 +86,7 @@ class ETLAPIClient:
 def main():
     """Run API client examples."""
     print("=" * 80)
-    print("Bhoomi Dhrishti - ETL API Client Example")
+    print("BHARAT LIVES - ETL API Client Example")
     print("=" * 80)
 
     client = ETLAPIClient()

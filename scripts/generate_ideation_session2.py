@@ -1,5 +1,5 @@
 """
-Generate Ideation Session 2 report for Bhoomi Dhrishti
+Generate Ideation Session 2 report for BHARAT LIVES
 Covers: Additional Ideas + Semantic Interoperability + LRES
 """
 
@@ -82,7 +82,7 @@ def create_report():
 
     title = doc.add_paragraph()
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = title.add_run('BHOOMI DHRISHTI')
+    run = title.add_run('BHARAT LIVES')
     run.bold = True
     run.font.size = Pt(36)
     run.font.color.rgb = RGBColor(27, 79, 114)
@@ -167,7 +167,7 @@ def create_report():
     doc.add_heading('1. Context: Where We Left Off', level=1)
 
     doc.add_paragraph(
-        'In Session 1, we established the core architecture for Bhoomi Dhrishti:'
+        'In Session 1, we established the core architecture for BHARAT LIVES:'
     )
 
     add_bullet(doc, 'MCP-like federated architecture with RL Host connecting to 28 state + 8 UT Servers', 'Core Idea: ')
@@ -183,7 +183,7 @@ def create_report():
     doc.add_paragraph(
         'This session extends the architecture with six new ideas and, most importantly, '
         'introduces the concept of semantic interoperability through LRES — the missing piece '
-        'that transforms Bhoomi Dhrishti from a data connector into a true understanding engine.'
+        'that transforms BHARAT LIVES from a data connector into a true understanding engine.'
     )
 
     doc.add_page_break()
@@ -253,7 +253,7 @@ def create_report():
     doc.add_paragraph(
         'This prevents fraud proactively. The Karnataka Bhoomi breach (19 acres illegally transferred in 2024) '
         'would have been caught instantly if the actual owner received an alert. No state system does this today '
-        'because alerts require cross-department visibility — exactly what Bhoomi Dhrishti provides.'
+        'because alerts require cross-department visibility — exactly what BHARAT LIVES provides.'
     )
 
     # 2.3
@@ -439,7 +439,7 @@ def create_report():
     doc.add_heading('3.1 The FHIR Parallel', level=2)
 
     add_styled_table(doc,
-        ['Healthcare', 'Land Records (Bhoomi Dhrishti)'],
+        ['Healthcare', 'Land Records (BHARAT LIVES)'],
         [
             ['HL7 V2 → FHIR migration', 'State-specific schemas → canonical BDPR schema'],
             ['Every hospital has its own EMR format', 'Every state has its own land record format'],
@@ -464,7 +464,7 @@ def create_report():
 
     doc.add_paragraph(
         'India solved the FORMAT problem years ago. Nobody solved the MEANING problem. That\'s the gap '
-        'Bhoomi Dhrishti fills.'
+        'BHARAT LIVES fills.'
     )
 
     doc.add_page_break()
@@ -643,7 +643,7 @@ def create_report():
     doc.add_heading('5. The Three-Layer Interoperability Stack', level=1)
 
     doc.add_paragraph(
-        'LRES gives Bhoomi Dhrishti a clean three-layer interoperability architecture. Each layer '
+        'LRES gives BHARAT LIVES a clean three-layer interoperability architecture. Each layer '
         'maps to an existing component:'
     )
 
@@ -682,7 +682,7 @@ def create_report():
     doc.add_paragraph()
     doc.add_paragraph(
         'This is the key framing for SIH: Layer 1 and Layer 2 are what everyone else will build. '
-        'Layer 3 is what only Bhoomi Dhrishti has. It\'s the difference between connecting systems '
+        'Layer 3 is what only BHARAT LIVES has. It\'s the difference between connecting systems '
         'and making systems understand each other.'
     )
 
@@ -711,7 +711,7 @@ def create_report():
     doc.add_paragraph()
     doc.add_paragraph('False conflicts everywhere. Officers lose trust. System becomes a burden.')
 
-    doc.add_heading('After LRES (what Bhoomi Dhrishti does)', level=3)
+    doc.add_heading('After LRES (what BHARAT LIVES does)', level=3)
 
     p = doc.add_paragraph()
     run = p.add_run(
@@ -781,10 +781,10 @@ def create_report():
 
     doc.add_paragraph(
         'Putting together ALL ideas from both brainstorming sessions, here is how the complete '
-        'Bhoomi Dhrishti system works end-to-end:'
+        'BHARAT LIVES system works end-to-end:'
     )
 
-    doc.add_heading('Four Pillars of Bhoomi Dhrishti', level=2)
+    doc.add_heading('Four Pillars of BHARAT LIVES', level=2)
 
     add_styled_table(doc,
         ['Pillar', 'What It Does', 'Components'],
@@ -853,7 +853,7 @@ def create_report():
     p = doc.add_paragraph()
     run = p.add_run(
         '"India digitized its land records department by department, state by state. '
-        'Nobody built the bridge between them. That bridge is Bhoomi Dhrishti."'
+        'Nobody built the bridge between them. That bridge is BHARAT LIVES."'
     )
     run.italic = True
     run.font.size = Pt(12)
@@ -887,7 +887,7 @@ def create_report():
     run = p.add_run(
         '"BDPR is the Aadhaar for land parcels. LRES is the UPI for land data. '
         'Purpose-bound access tokens are DEPA consent for property information. '
-        'Bhoomi Dhrishti is India Stack for land governance."'
+        'BHARAT LIVES is India Stack for land governance."'
     )
     run.italic = True
     run.font.size = Pt(12)
@@ -923,7 +923,7 @@ def create_report():
     doc.add_heading('Key Differentiators vs Competition', level=2)
 
     add_styled_table(doc,
-        ['What Others Will Build', 'What Bhoomi Dhrishti Has'],
+        ['What Others Will Build', 'What BHARAT LIVES Has'],
         [
             ['Centralized database', 'Federated — data stays with states'],
             ['Static API connectors', 'Self-healing RL-optimized adaptive connectors'],
@@ -939,7 +939,7 @@ def create_report():
 
     # Save
     output_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    output_path = os.path.join(output_dir, 'Bhoomi_Dhrishti_Ideation_Session2.docx')
+    output_path = os.path.join(output_dir, 'bharat_lives_Ideation_Session2.docx')
     doc.save(output_path)
     print(f'Saved: {output_path}')
     print(f'Size: {os.path.getsize(output_path) / 1024:.1f} KB')

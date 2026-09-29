@@ -1,6 +1,6 @@
-# Bhoomi Dhrishti Frontend Monorepo
+# BHARAT LIVES Frontend Monorepo
 
-Complete Next.js 14 frontend for the Bhoomi Dhrishti land governance platform.
+Complete Next.js 14 frontend for the BHARAT LIVES land governance platform.
 
 ## Architecture
 

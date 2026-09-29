@@ -1,7 +1,7 @@
 """
 Parcel Identity Service – FastAPI application entry point.
 
-This is the spine of the Bhoomi Dhrishti platform.  Every other
+This is the spine of the BHARAT LIVES platform.  Every other
 microservice resolves parcels via this service's BDPR / ULPIN API.
 """
 
@@ -69,9 +69,9 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 # ---------------------------------------------------------------------------
 
 app = FastAPI(
-    title="Bhoomi Dhrishti – Parcel Identity Service",
+    title="BHARAT LIVES – Parcel Identity Service",
     description=(
-        "Canonical parcel identity register for the Bhoomi Dhrishti "
+        "Canonical parcel identity register for the BHARAT LIVES "
         "land governance platform (SIH 2026, PS-26014). "
         "Every land parcel in India gets a stable BDPR here."
     ),

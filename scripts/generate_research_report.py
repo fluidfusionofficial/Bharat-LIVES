@@ -1,5 +1,5 @@
 """
-Generate comprehensive research report for Bhoomi Dhrishti - SIH 2026 PS-26014
+Generate comprehensive research report for BHARAT LIVES - SIH 2026 PS-26014
 as a Word document (.docx)
 """
 
@@ -73,7 +73,7 @@ def create_report():
 
     title = doc.add_paragraph()
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = title.add_run('BHOOMI DHRISHTI')
+    run = title.add_run('BHARAT LIVES')
     run.bold = True
     run.font.size = Pt(36)
     run.font.color.rgb = RGBColor(27, 79, 114)
@@ -157,7 +157,7 @@ def create_report():
         '   6.8 Academic Datasets',
         '   6.9 Demo Data Recommendations',
         '   6.10 Integration Priority Order',
-        '7. Why Bhoomi Dhrishti\'s Architecture is the Answer',
+        '7. Why BHARAT LIVES\'s Architecture is the Answer',
         '   7.5 PS-26014 Requirements Alignment',
         '   7.6 Technical Requirements Checklist',
         '8. SIH 2026 Judging Criteria & Strategy',
@@ -196,7 +196,7 @@ def create_report():
         'of inconsistency that cross-departmental integration would catch.'
     )
     doc.add_paragraph(
-        'Bhoomi Dhrishti addresses this through a federated authority model with a materialized '
+        'BHARAT LIVES addresses this through a federated authority model with a materialized '
         'non-authoritative cache. States keep their records and authority. The platform provides: '
         '(1) a canonical parcel identity layer (BDPR/ULPIN), (2) an interoperability engine that '
         'translates state-specific schemas to a canonical format, (3) a trust engine that scores '
@@ -209,7 +209,7 @@ def create_report():
     run.bold = True
     p.add_run(
         'India digitized its land records department by department, state by state. '
-        'Nobody built the bridge between them. That bridge is Bhoomi Dhrishti.'
+        'Nobody built the bridge between them. That bridge is BHARAT LIVES.'
     )
 
     doc.add_page_break()
@@ -359,7 +359,7 @@ def create_report():
         doc.add_paragraph(item, style='List Bullet')
 
     p = doc.add_paragraph()
-    run = p.add_run('Lesson for Bhoomi Dhrishti: ')
+    run = p.add_run('Lesson for BHARAT LIVES: ')
     run.bold = True
     p.add_run(
         'Centralization without interoperability fails. The federated model is the right approach - '
@@ -525,7 +525,7 @@ def create_report():
     p = doc.add_paragraph()
     run = p.add_run('Every state digitized its own system. No state built an integration layer. ')
     run.bold = True
-    p.add_run('That is the gap Bhoomi Dhrishti fills.')
+    p.add_run('That is the gap BHARAT LIVES fills.')
 
     doc.add_page_break()
 
@@ -535,7 +535,7 @@ def create_report():
     doc.add_heading('4. Hidden & Overlooked Aspects', level=1)
     doc.add_paragraph(
         'These are the dimensions that most hackathon teams and even government programs fail '
-        'to address. Each represents a blind spot in current land governance that Bhoomi Dhrishti '
+        'to address. Each represents a blind spot in current land governance that BHARAT LIVES '
         'can uniquely surface through its cross-departmental integration approach.'
     )
 
@@ -559,7 +559,7 @@ def create_report():
 
     doc.add_paragraph()
     p = doc.add_paragraph()
-    run = p.add_run('Bhoomi Dhrishti impact: ')
+    run = p.add_run('BHARAT LIVES impact: ')
     run.bold = True
     p.add_run(
         'The trust engine can flag conflicts BEFORE they become court cases. '
@@ -613,7 +613,7 @@ def create_report():
     doc.add_paragraph(
         'States like West Bengal prove gender-disaggregated data is technically feasible '
         '(22 of 23 districts). Odisha having zero districts shows it\'s a policy choice, '
-        'not a technical limitation. Bhoomi Dhrishti\'s analytics can surface this gap.'
+        'not a technical limitation. BHARAT LIVES\'s analytics can surface this gap.'
     )
 
     # 4.4
@@ -657,7 +657,7 @@ def create_report():
         doc.add_paragraph(item, style='List Bullet')
 
     p = doc.add_paragraph()
-    run = p.add_run('Bhoomi Dhrishti\'s response: ')
+    run = p.add_run('BHARAT LIVES\'s response: ')
     run.bold = True
     p.add_run(
         'The trust engine and append-only hash-chained audit log are not nice-to-haves - '
@@ -674,7 +674,7 @@ def create_report():
     )
     items = [
         'Only Rajasthan is piloting Urban Land Titling Act for conclusive title',
-        'The Bhoomi Dhrishti CLAUDE.md correctly states: "The platform never asserts conclusive ownership"',
+        'The BHARAT LIVES CLAUDE.md correctly states: "The platform never asserts conclusive ownership"',
         'This is legally correct and most competing teams won\'t understand why',
         'Every API response carries source_department, source_system, source_as_of_date, data_freshness_status',
         'This provenance tracking is the technically correct response to presumptive title',
@@ -771,7 +771,7 @@ def create_report():
         doc.add_paragraph(item, style='List Bullet')
 
     p = doc.add_paragraph()
-    run = p.add_run('Bhoomi Dhrishti approach: ')
+    run = p.add_run('BHARAT LIVES approach: ')
     run.bold = True
     p.add_run(
         'Surfacing disagreements rather than asserting truth is the realistic intermediate step. '
@@ -783,7 +783,7 @@ def create_report():
         'The Land Administration Domain Model (ISO 19152) is the international standard for '
         'land administration data models. It defines standard classes for Party, RRR (Rights, '
         'Restrictions, Responsibilities), BAUnit (Basic Administrative Unit), and SpatialUnit. '
-        'India has not formally adopted LADM, but Bhoomi Dhrishti\'s canonical schema aligns '
+        'India has not formally adopted LADM, but BHARAT LIVES\'s canonical schema aligns '
         'with LADM concepts.'
     )
 
@@ -834,7 +834,7 @@ def create_report():
     run.bold = True
     p.add_run(
         'India can\'t do a clean-slate approach, but the principle of accepting imperfect data '
-        'and building trust incrementally (Bhoomi Dhrishti\'s Bronze-Silver-Gold tiers) directly mirrors '
+        'and building trust incrementally (BHARAT LIVES\'s Bronze-Silver-Gold tiers) directly mirrors '
         'Rwanda\'s pragmatism. SVAMITVA\'s drone surveys are India\'s version of Rwanda\'s imagery approach.'
     )
 
@@ -895,7 +895,7 @@ def create_report():
     p.add_run(
         'India faces the same "never catch up" problem as Indonesia. SVAMITVA at 14.38% coverage '
         'after years of drone surveys demonstrates the gap. The fit-for-purpose philosophy validates '
-        'Bhoomi Dhrishti\'s tiered conformance approach - start with Bronze (imperfect data), upgrade '
+        'BHARAT LIVES\'s tiered conformance approach - start with Bronze (imperfect data), upgrade '
         'progressively to Silver and Gold.'
     )
 
@@ -911,7 +911,7 @@ def create_report():
     p.add_run(
         'Estonia is small (1.3M people) with a unified legal system. India has 1.4 billion '
         'people and 36 jurisdictions. But the X-Road concept (federated, not centralized) '
-        'directly informs Bhoomi Dhrishti\'s architecture. The interoperability service IS '
+        'directly informs BHARAT LIVES\'s architecture. The interoperability service IS '
         'India\'s X-Road for land records.'
     )
 
@@ -950,7 +950,7 @@ def create_report():
         '"Institutional support and governance stability matter more than the technology itself." '
         'Georgia succeeded because of strong government commitment. Honduras failed despite the same '
         'technology. Blockchain works for immutability/audit trail but is NOT a solution for the '
-        'underlying interoperability problem. Bhoomi Dhrishti\'s hash-chained audit log achieves '
+        'underlying interoperability problem. BHARAT LIVES\'s hash-chained audit log achieves '
         'the same tamper-evidence without blockchain complexity.'
     )
 
@@ -967,12 +967,12 @@ def create_report():
     run.bold = True
     p.add_run(
         'INSPIRE\'s phased approach (metadata first, then view services, then download services, '
-        'then harmonization) maps directly to Bhoomi Dhrishti\'s Bronze/Silver/Gold conformance tiers.'
+        'then harmonization) maps directly to BHARAT LIVES\'s Bronze/Silver/Gold conformance tiers.'
     )
 
     doc.add_heading('5.10 Summary: International Lessons for India', level=2)
     add_styled_table(doc,
-        ['Lesson', 'Source', 'Bhoomi Dhrishti Response'],
+        ['Lesson', 'Source', 'BHARAT LIVES Response'],
         [
             ['Conclusive title requires massive upfront investment', 'Torrens / US failures', 'Don\'t assert ownership; surface disagreements'],
             ['$6/parcel registration is possible at national scale', 'Rwanda ($6), Ethiopia ($1-8)', 'Bronze tier accepts imperfect data'],
@@ -992,7 +992,7 @@ def create_report():
     doc.add_heading('6. Available Datasets', level=1)
 
     doc.add_paragraph(
-        'This section catalogs datasets confirmed accessible for Bhoomi Dhrishti development, '
+        'This section catalogs datasets confirmed accessible for BHARAT LIVES development, '
         'demo preparation, and production integration. Priority: datasets that are freely available, '
         'India-complete, and provide building/parcel-level geospatial data.'
     )
@@ -1063,7 +1063,7 @@ def create_report():
     p.add_run(
         'Community-sourced roads and buildings provide a validation layer. Land use tags are useful '
         'for zoning cross-checks. Daily updates ensure freshness. Direct PostGIS import via osm2pgsql '
-        'aligns with Bhoomi Dhrishti\'s geospatial service.'
+        'aligns with BHARAT LIVES\'s geospatial service.'
     )
 
     doc.add_heading('6.4 Survey of India - Post-2021 Liberalization', level=2)
@@ -1123,7 +1123,7 @@ def create_report():
         'applications. It provides unique codes for every land region and local government body. '
         'API access is available through NAPIX (dev.napix.gov.in/nic/lgd/). Coverage: 677,558 '
         'villages (642,583 rural + 24,077 urban), 784 districts, 7,092 sub-districts. '
-        'This is the hierarchical backbone that Bhoomi Dhrishti should use for location '
+        'This is the hierarchical backbone that BHARAT LIVES should use for location '
         'standardization across states.'
     )
 
@@ -1169,13 +1169,13 @@ def create_report():
     doc.add_page_break()
 
     # ============================================================
-    # 7. WHY BHOOMI DHRISHTI'S ARCHITECTURE IS THE ANSWER
+    # 7. WHY BHARAT LIVES'S ARCHITECTURE IS THE ANSWER
     # ============================================================
-    doc.add_heading('7. Why Bhoomi Dhrishti\'s Architecture is the Answer', level=1)
+    doc.add_heading('7. Why BHARAT LIVES\'s Architecture is the Answer', level=1)
 
     doc.add_heading('7.1 Federated Authority + Materialized Cache', level=2)
     add_styled_table(doc,
-        ['What Others Do', 'What Bhoomi Dhrishti Does', 'Why It\'s Better'],
+        ['What Others Do', 'What BHARAT LIVES Does', 'Why It\'s Better'],
         [
             ['Build a central database', 'Cache state data, never claim authority', 'Respects federal structure + presumptive title'],
             ['Replace state systems', 'Add integration layer above', 'Politically feasible, states keep control'],
@@ -1190,7 +1190,7 @@ def create_report():
     doc.add_heading('7.2 The Trust Engine - Your Differentiator', level=2)
     doc.add_paragraph(
         'No other state system has this. They all show you ONE department\'s view. '
-        'Bhoomi Dhrishti shows all departments\' views simultaneously and scores the '
+        'BHARAT LIVES shows all departments\' views simultaneously and scores the '
         'disagreement. Deterministic rule checks with risk banding (CRITICAL penalty=40, '
         'HIGH=20, MEDIUM=10, LOW=5). This is novel in the Indian land governance space.'
     )
@@ -1220,11 +1220,11 @@ def create_report():
     doc.add_heading('7.5 PS-26014 Exact Problem Statement Alignment', level=2)
     doc.add_paragraph(
         'PS-26014 specifies a "Land Stack" with three layers. The table below maps each '
-        'requirement to existing Bhoomi Dhrishti services.'
+        'requirement to existing BHARAT LIVES services.'
     )
 
     add_styled_table(doc,
-        ['PS-26014 Requirement', 'Layer', 'Bhoomi Dhrishti Service', 'Status'],
+        ['PS-26014 Requirement', 'Layer', 'BHARAT LIVES Service', 'Status'],
         [
             ['Georeferenced cadastral maps', 'Base', 'Geospatial (8002)', 'Full'],
             ['Parcel boundaries', 'Base', 'Geospatial (8002)', 'Full'],
@@ -1245,7 +1245,7 @@ def create_report():
     doc.add_paragraph()
     doc.add_heading('7.6 Technical Requirements Checklist', level=2)
     add_styled_table(doc,
-        ['Requirement', 'PS-26014 Asks', 'Bhoomi Dhrishti Implementation', 'Met?'],
+        ['Requirement', 'PS-26014 Asks', 'BHARAT LIVES Implementation', 'Met?'],
         [
             ['Interoperability', 'Open APIs, standardized metadata, secure auth', 'Interoperability service + mapping.yaml + Keycloak JWT', 'Yes'],
             ['Access Controls', 'RBAC + audit trails + scalable architecture', 'bhoomi_common.auth + audit service + 16 microservices', 'Yes'],
@@ -1274,7 +1274,7 @@ def create_report():
     p.add_run(
         'Only 26 out of 500 idea slots have been submitted for PS-26014 as of September 2026. '
         'Pilot deployments were launched in Chandigarh and Tamil Nadu on December 31, 2025 - '
-        'Bhoomi Dhrishti already has TN pilot data and CH urban mapping configuration.'
+        'BHARAT LIVES already has TN pilot data and CH urban mapping configuration.'
     )
 
     doc.add_page_break()
@@ -1477,7 +1477,7 @@ def create_report():
     # SAVE
     # ============================================================
     output_dir = os.path.dirname(os.path.abspath(__file__))
-    output_path = os.path.join(os.path.dirname(output_dir), 'Bhoomi_Dhrishti_Research_Report.docx')
+    output_path = os.path.join(os.path.dirname(output_dir), 'bharat_lives_Research_Report.docx')
     doc.save(output_path)
     print(f"Report saved to: {output_path}")
     return output_path

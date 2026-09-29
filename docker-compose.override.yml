@@ -1,7 +1,7 @@
 version: "3.9"
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Bhoomi Dhrishti – Development Overrides
+# BHARAT LIVES – Development Overrides
 # Applied automatically when running `docker compose up` in development.
 # Mount source code for hot-reload; expose additional debug ports.
 # ─────────────────────────────────────────────────────────────────────────────

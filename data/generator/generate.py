@@ -1,5 +1,5 @@
 """
-Bhoomi Dhrishti - Realistic Synthetic Data Generator
+BHARAT LIVES - Realistic Synthetic Data Generator
 Generates 2000+ TN rural and 1000+ CH urban parcels with 7 departmental views.
 Calibrated against: Agricultural Census (86.21% small/marginal), NFHS-5 (14% female
 ownership), DILRMP dashboard (TN/CH 100% ULPIN), TN Bhoomi Pahani format, CH Estate Office.
@@ -993,7 +993,7 @@ def generate_rapid_flip_sro(parcel: Dict) -> List[Dict]:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate Bhoomi Dhrishti realistic mock data")
+    parser = argparse.ArgumentParser(description="Generate BHARAT LIVES realistic mock data")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--tn-count", type=int, default=2000)
     parser.add_argument("--ch-count", type=int, default=1000)

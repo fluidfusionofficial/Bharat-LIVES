@@ -1,5 +1,5 @@
 """
-bhoomi_common – Shared library for all Bhoomi Dhrishti FastAPI services.
+bhoomi_common – Shared library for all BHARAT LIVES FastAPI services.
 
 Provides:
   - Base Pydantic models with provenance fields
@@ -11,4 +11,4 @@ Provides:
 """
 
 __version__ = "0.1.0"
-__author__ = "Bhoomi Dhrishti Platform Team"
+__author__ = "BHARAT LIVES Platform Team"

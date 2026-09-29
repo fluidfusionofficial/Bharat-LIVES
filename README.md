@@ -1,4 +1,4 @@
-# Bhoomi Dhrishti
+# BHARAT LIVES
 
 **Federated Land Governance Interoperability Platform**
 
@@ -14,7 +14,7 @@ SIH 2026 | Problem Statement PS-26014 | Ministry of Rural Development / DoLR
 
 ## Overview
 
-Bhoomi Dhrishti is a **federated land-records interoperability platform** that addresses the critical problem of fragmented land records across Indian states and departments. Built on **ISO 19152 (LADM) India Profile**, the system creates a parcel-centric identity fabric that links disparate departmental sources without requiring centralized data migration.
+BHARAT LIVES is a **federated land-records interoperability platform** that addresses the critical problem of fragmented land records across Indian states and departments. Built on **ISO 19152 (LADM) India Profile**, the system creates a parcel-centric identity fabric that links disparate departmental sources without requiring centralized data migration.
 
 ### The Problem
 
@@ -96,7 +96,7 @@ make ps
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                     Bhoomi Dhrishti Platform                        │
+│                     BHARAT LIVES Platform                        │
 │                                                                      │
 │  ┌─────────────────┐  ┌──────────────────┐  ┌──────────────────┐  │
 │  │   Citizen PWA   │  │ Officer Console  │  │ Admin Dashboard  │  │

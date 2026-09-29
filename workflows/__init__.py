@@ -1,5 +1,5 @@
 """
-Bhoomi Dhrishti - End-to-end workflow orchestrations
+BHARAT LIVES - End-to-end workflow orchestrations
 Cross-departmental integration workflows demonstrating the platform's capabilities
 """
 

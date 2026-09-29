@@ -1,7 +1,7 @@
 """
 bhoomi_common.auth – JWT verification middleware and Keycloak integration.
 
-Verifies RS256 JWTs issued by the Bhoomi Dhrishti Keycloak realm.
+Verifies RS256 JWTs issued by the BHARAT LIVES Keycloak realm.
 Extracts roles, purpose-bound claims, and actor metadata.
 
 Usage:
@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 # ─────────────────────────────────────────────────────────────────────────────
 
 KEYCLOAK_JWKS_URL     = os.environ.get("KEYCLOAK_JWKS_URL", "")
-KEYCLOAK_REALM        = os.environ.get("KEYCLOAK_REALM", "bhoomi-dhrishti")
+KEYCLOAK_REALM        = os.environ.get("KEYCLOAK_REALM", "bharat-lives")
 KEYCLOAK_HOST         = os.environ.get("KEYCLOAK_HOST", "keycloak")
 KEYCLOAK_PORT         = os.environ.get("KEYCLOAK_PORT", "8080")
 JWT_ALGORITHM         = os.environ.get("JWT_ALGORITHM", "RS256")

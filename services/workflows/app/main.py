@@ -18,7 +18,7 @@ from building_permission import BuildingPermissionWorkflow, BuildingPermitReques
 from unauthorized_conversion import UnauthorizedConversionWorkflow
 
 app = FastAPI(
-    title="Bhoomi Dhrishti Workflow Orchestrator",
+    title="BHARAT LIVES Workflow Orchestrator",
     description="End-to-end workflow execution service",
     version="1.0.0"
 )

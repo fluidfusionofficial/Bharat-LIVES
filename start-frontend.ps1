@@ -1,4 +1,4 @@
-Write-Host "Starting Bhoomi Dhrishti Frontend Apps..." -ForegroundColor Green
+Write-Host "Starting BHARAT LIVES Frontend Apps..." -ForegroundColor Green
 Write-Host ""
 
 Write-Host "Stopping any existing frontend processes..." -ForegroundColor Gray
@@ -6,13 +6,13 @@ taskkill /F /IM node.exe 2>$null
 Start-Sleep -Seconds 2
 
 Write-Host "Starting Officer Console on port 3000..." -ForegroundColor Cyan
-Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd \"D:\Bhoomi Dhrishti\bhoomi-dhrishti\frontend\apps\officer\" && npx next dev -p 3000 > \"D:\Bhoomi Dhrishti\bhoomi-dhrishti\officer.log\" 2>&1" -WindowStyle Hidden
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd \"D:\BHARAT LIVES\bharat-lives\frontend\apps\officer\" && npx next dev -p 3000 > \"D:\BHARAT LIVES\bharat-lives\officer.log\" 2>&1" -WindowStyle Hidden
 
 Write-Host "Starting Citizen Portal on port 3002..." -ForegroundColor Cyan
-Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd \"D:\Bhoomi Dhrishti\bhoomi-dhrishti\frontend\apps\citizen\" && npx next dev -p 3002 > \"D:\Bhoomi Dhrishti\bhoomi-dhrishti\citizen.log\" 2>&1" -WindowStyle Hidden
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd \"D:\BHARAT LIVES\bharat-lives\frontend\apps\citizen\" && npx next dev -p 3002 > \"D:\BHARAT LIVES\bharat-lives\citizen.log\" 2>&1" -WindowStyle Hidden
 
 Write-Host "Starting Admin Console on port 3003..." -ForegroundColor Cyan
-Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd \"D:\Bhoomi Dhrishti\bhoomi-dhrishti\frontend\apps\admin\" && npx next dev -p 3003 > \"D:\Bhoomi Dhrishti\bhoomi-dhrishti\admin.log\" 2>&1" -WindowStyle Hidden
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c cd \"D:\BHARAT LIVES\bharat-lives\frontend\apps\admin\" && npx next dev -p 3003 > \"D:\BHARAT LIVES\bharat-lives\admin.log\" 2>&1" -WindowStyle Hidden
 
 Write-Host ""
 Write-Host "Waiting 45 seconds for apps to compile..." -ForegroundColor Gray
@@ -28,7 +28,7 @@ Write-Host "Citizen Portal:   http://localhost:3002" -ForegroundColor White
 Write-Host "Admin Console:    http://localhost:3003" -ForegroundColor White
 Write-Host ""
 Write-Host "Logs:" -ForegroundColor Gray
-Write-Host "  Officer: D:\Bhoomi Dhrishti\bhoomi-dhrishti\officer.log" -ForegroundColor Gray
-Write-Host "  Citizen: D:\Bhoomi Dhrishti\bhoomi-dhrishti\citizen.log" -ForegroundColor Gray
-Write-Host "  Admin:   D:\Bhoomi Dhrishti\bhoomi-dhrishti\admin.log" -ForegroundColor Gray
+Write-Host "  Officer: D:\BHARAT LIVES\bharat-lives\officer.log" -ForegroundColor Gray
+Write-Host "  Citizen: D:\BHARAT LIVES\bharat-lives\citizen.log" -ForegroundColor Gray
+Write-Host "  Admin:   D:\BHARAT LIVES\bharat-lives\admin.log" -ForegroundColor Gray
 Write-Host ""

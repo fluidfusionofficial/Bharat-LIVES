@@ -21,7 +21,7 @@ from app.engine.validator import DataQualityValidator
 def main():
     """Run ETL example."""
     print("=" * 80)
-    print("Bhoomi Dhrishti - ETL Mapping Engine Example")
+    print("BHARAT LIVES - ETL Mapping Engine Example")
     print("=" * 80)
 
     # Paths

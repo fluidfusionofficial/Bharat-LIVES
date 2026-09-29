@@ -28,7 +28,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Notifications Service",
     version="1.0.0",
-    description="Multi-channel, multi-language notification delivery for Bhoomi Dhrishti.",
+    description="Multi-channel, multi-language notification delivery for BHARAT LIVES.",
     lifespan=lifespan,
 )
 

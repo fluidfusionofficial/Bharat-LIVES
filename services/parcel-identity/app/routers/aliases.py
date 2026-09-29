@@ -19,7 +19,7 @@ async def resolve_alias(
 ):
     """
     Resolve a state-specific parcel identifier (survey number, PID, khasra, etc.)
-    to its canonical Bhoomi Dhrishti Parcel Reference (BDPR).
+    to its canonical BHARAT LIVES Parcel Reference (BDPR).
     """
     from bhoomi_common.errors import BhoomiNotFound
     raise BhoomiNotFound("Alias", f"{alias_type}/{alias_value}")

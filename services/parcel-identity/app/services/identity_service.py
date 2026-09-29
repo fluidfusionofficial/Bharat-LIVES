@@ -33,7 +33,7 @@ logger = structlog.get_logger()
 
 async def generate_bdpr(state_code: str, db: AsyncSession) -> str:
     """
-    Generate a unique Bhoomi Dhrishti Parcel Reference.
+    Generate a unique BHARAT LIVES Parcel Reference.
 
     Format: BD-{STATE_CODE_UPPER}-{8_HEX_UPPER}
     Example: BD-TN-A3F12B9C
@@ -65,7 +65,7 @@ def _build_provenance(parcel: Parcel) -> ProvenanceInfo:
     derive one: data retrieved directly from the DB is LIVE; the source
     system is the ULPIN assigner when known, otherwise the platform itself.
     """
-    source_system = parcel.ulpin_source or "BHOOMI_DHRISHTI"
+    source_system = parcel.ulpin_source or "bharat_lives"
     return ProvenanceInfo(
         source_department="Revenue Department",
         source_system=source_system,
@@ -174,7 +174,7 @@ async def create_parcel(
             parcel_id=parcel.id,
             alias_type="SURVEY_NUMBER",
             alias_value=req.initial_survey_number,
-            source_system="BHOOMI_DHRISHTI",
+            source_system="bharat_lives",
         )
         db.add(alias)
 

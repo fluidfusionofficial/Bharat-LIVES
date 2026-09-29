@@ -27,7 +27,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Bhoomi Dhrishti – Planning & Zoning Service",
+    title="BHARAT LIVES – Planning & Zoning Service",
     description="Manages master plan zoning regulations, building permissions, and court dispute linkages",
     version="0.1.0",
     docs_url="/docs",
